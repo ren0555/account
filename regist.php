@@ -1,129 +1,143 @@
-<html>
+<!DOCTYPE html>
+<html lang="ja">
     <head>
         <title>アカウント登録画面</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        
     </head>
+    
     <body>
-        <header>
-            <h1>ナビゲーションバー</h1>
-        </header>
+        <header>ナビゲーションバー</header>
         <main>
-            <form method="post"  action="XXX" name="XXX" ></form>
-            <div>
-                <label>名前(姓)</label><br>
-                <input type="text" class="text" size="XXX" name="name1">
-            </div>
+            <form method="post"  action="regist_confirm2.php" name="XXX" maxlength="10">
+                <div class="contents">
+                    <label>名前(姓)</label>
+                    <script>
+                        function check(){
+                            if(name1.length==0){
+                                decument.write("名前（姓）が未入力です。")
+                            }else{
+                                form.submit();
+                            }
+                        }
+                    </script>
+                    <input type="text" class="text" size="XXX" name="name1" maxlength="10">
+                </div>
             
-            <div>
-                <label>名前(名)</label><br>
-                <input type="text" class="text" size="XXX" name="name2">
-            </div>
+                <div class="contents">
+                    <label>名前(名)</label>
+                    <input type="text" class="text" size="XXX" name="name2" maxlength="10">
+                </div>
             
-            <div>
-                <label>カナ(姓)</label><br>
-                <input type="text" class="text" size="XXX" name="name3">
-            </div>
+                <div class="contents">
+                    <label>カナ(姓)</label>
+                    <input type="text" class="text" size="XXX" name="name3" maxlength="10">
+                </div>
             
-            <div>
-                <label>カナ(名)</label><br>
-                <input type="text" class="text" size="XXX" name="name4">
-            </div>
+                <div class="contents">
+                    <label>カナ(名)</label>
+                    <input type="text" class="text" size="XXX" name="name4" maxlength="10">
+                </div>
             
-            <div>
-                <label>メールアドレス</label><br>
-                <input type="text" class="text" size="XXX" name="mail">
-            </div>
+                <div class="contents">
+                    <label>メールアドレス</label>
+                    <input type="text" class="text1" size="XXX" name="mail" maxlength="100">
+                </div>
             
-            <div>
-                <label>パスワード</label><br>
-                <input type="text" class="text" size="XXX" name="password">
-            </div>
+                <div class="contents">
+                    <label>パスワード</label>
+                    <input type="text" class="text2" size="XXX" name="password" maxlength="10" placeholder="">
+                </div>
             
-            <div>
-                <label>性別</label>
-                <input type="radio" size="XXX" name="seibetu">男
-                <input type="radio" size="XXX" name="seibetu">女
-            </div>
+                <div class="contents">
+                    <label>性別</label>
+                    <input type="radio" size="XXX" name="seibetu" class="radio">男
+                    <input type="radio" size="XXX" name="seibetu" class="radio">女
+                </div>
             
-            <div>
-                <label>郵便番号</label>
-                <input type="text" class="text" size="XXX" name="yubin">
-            </div>
+                <div class="contents">
+                    <label>郵便番号</label>
+                    <input type="text" class="text" size="10" name="yubin" maxlength="7">
+                </div>
             
-            <div>
-                <label>住所(都道府県)</label>
-                <select name="XXX">
-                    <option value="1">北海道</option>
-                    <option value="2">青森県</option>
-                    <option value="3">岩手県</option>
-                    <option value="4">宮城県</option>
-                    <option value="5">秋田県</option>
-                    <option value="6">山形県</option>
-                    <option value="7">福島県</option>
-                    <option value="8">茨城県</option>
-                    <option value="9">栃木県</option>
-                    <option value="10">群馬県</option>
-                    <option value="11">埼玉県</option>
-                    <option value="12">千葉県</option>
-                    <option value="13">東京都</option>
-                    <option value="14">神奈川県</option>
-                    <option value="15">新潟県</option>
-                    <option value="16">富山県</option>
-                    <option value="17">石川県</option>
-                    <option value="18">福井県</option>
-                    <option value="19">山梨県</option>
-                    <option value="20">長野県</option>
-                    <option value="21">岐阜県</option>
-                    <option value="22">静岡県</option>
-                    <option value="23">愛知県</option>
-                    <option value="24">三重県</option>
-                    <option value="25">滋賀県</option>
-                    <option value="26">京都府</option>
-                    <option value="27">大阪府</option>
-                    <option value="28">兵庫県</option>
-                    <option value="29">奈良県</option>
-                    <option value="30">和歌山県</option>
-                    <option value="31">鳥取県</option>
-                    <option value="32">島根県</option>
-                    <option value="33">岡山県</option>
-                    <option value="34">広島県</option>
-                    <option value="35">山口県</option>
-                    <option value="36">徳島県</option>
-                    <option value="37">香川県</option>
-                    <option value="38">愛媛県</option>
-                    <option value="39">高知県</option>
-                    <option value="40">福岡県</option>
-                    <option value="41">佐賀県</option>
-                    <option value="42">長崎県</option>
-                    <option value="43">熊本県</option>
-                    <option value="44">大分県</option>
-                    <option value="45">宮崎県</option>
-                    <option value="46">鹿児島県</option>
-                    <option value="47">沖縄県</option>
-                </select>
-            </div>
+                <div class="contents">
+                    <label>住所(都道府県)</label>
+                    <select name="prefecture" placeholder="" class="text3">
+                        <option>北海道</option>
+                        <option>青森県</option>
+                        <option>岩手県</option>
+                        <option>宮城県</option>
+                        <option>秋田県</option>
+                        <option>山形県</option>
+                        <option>福島県</option>
+                        <option>茨城県</option>
+                        <option>栃木県</option>
+                        <option>群馬県</option>
+                        <option>埼玉県</option>
+                        <option>千葉県</option>
+                        <option>東京都</option>
+                        <option>神奈川県</option>
+                        <option>新潟県</option>
+                        <option>富山県</option>
+                        <option>石川県</option>
+                        <option>福井県</option>
+                        <option>山梨県</option>
+                        <option>長野県</option>
+                        <option>岐阜県</option>
+                        <option>静岡県</option>
+                        <option>愛知県</option>
+                        <option>三重県</option>
+                        <option>滋賀県</option>
+                        <option>京都府</option>
+                        <option>大阪府</option>
+                        <option>兵庫県</option>
+                        <option>奈良県</option>
+                        <option>和歌山県</option>
+                        <option>鳥取県</option>
+                        <option>島根県</option>
+                        <option>岡山県</option>
+                        <option>広島県</option>
+                        <option>山口県</option>
+                        <option>徳島県</option>
+                        <option>香川県</option>
+                        <option>愛媛県</option>
+                        <option>高知県</option>
+                        <option>福岡県</option>
+                        <option>佐賀県</option>
+                        <option>長崎県</option>
+                        <option>熊本県</option>
+                        <option>大分県</option>
+                        <option>宮崎県</option>
+                        <option>鹿児島県</option>
+                        <option>沖縄県</option>
+                    </select>
+                </div>
             
-            <div>
-                <label>住所(市区町村)</label>
-                <input type="text"class="text" size="XXX" name="sikutyouson">
-            </div>
-            <div>
-                <label>住所(番地)</label>
-                <input type="text"class="text" size="XXX" name="banti">
-            </div>
+                <div class="contents">
+                    <label>住所(市区町村)</label>
+                    <input type="text"class="text3" size="XXX" name="sikutyouson" maxlength="10">
+                </div>
+                
+                <div class="contents">
+                    <label>住所(番地)</label>
+                    <input type="text"class="text4" size="XXX" name="banti" maxlength="100">
+                </div>
 
-            <div>
-                <label>アカウント権限</label>
-                <select name="XXX">
-                    <option>一般</option>
-                    <option>管理者</option>
-                </select>
-            </div>
+                <div class="contents">
+                    <label>アカウント権限</label>
+                    <select name="kengen" class="text5">
+                        <option>一般</option>
+                        <option>管理者</option>
+                    </select>
+                </div>
             
-            <div>
-                <input type="button" value="確認する">
-            </div>
+                <div class="kakunin">
+                    <input type="submit" value="確認する" class="bottun" onclick="check();returnfalse;">
+                </div>
+            </form>
         </main>
+        <footer>フッター</footer>
     </body>
 
 </html>

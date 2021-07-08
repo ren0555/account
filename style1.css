@@ -1,0 +1,38 @@
+header{
+    text-align: center;
+    border: 1px solid;
+    padding: 15px;
+}
+
+.confirm{
+    text-align: center;
+    width: 400px;
+    margin: auto;
+}
+
+.confirm_left{
+    text-align: left;
+    width: 200px;
+    display: inline-block;
+}
+.confirm_left .contents{
+    margin: 15px;
+}
+.confirm_right{
+    display: inline-block;
+    float: right;
+    text-align: left;
+    width: 200px;
+    
+}
+.confirm_right .insert{
+    margin: 15px;
+}
+.modoru{
+    display: inline-block;
+    width: 100px;
+}
+.touroku{
+    display: inline-block;
+    width: 100px;
+}

@@ -1,0 +1,55 @@
+header{
+    text-align: center;
+    border: 1px solid;
+    padding: 15px;
+}
+form{
+    text-align: center;
+    display: block;
+    margin: auto;
+    width: 400px;
+    
+}
+main{
+    border: 1px solid;
+    height: 100%;
+}
+.contents{
+    text-align: left;
+}
+.text{
+    margin: 15px 0px 15px 60px;
+}
+.text1{
+    margin: 15px 0px 15px 11px;
+}
+.text2{
+    margin: 15px 0px 15px 45px;
+}
+.radio{
+    margin: 15px 0px 15px 90px;
+}
+.text3{
+    margin: 15px 0px 15px 13px;
+}
+.text4{
+    margin: 15px 0px 15px 45px;
+}
+.text5{
+    margin: 15px 0px 15px 12px;
+}
+
+/*ラベルの方にも大きさを設定し、マージンでそろえることで右側のテキストが揃えられるはず*/
+.kakunin{
+    padding: 35px;
+}
+.bottun{
+    padding: 20px 75px;
+    background-color: white;
+}
+footer{
+    text-align: center;
+    margin-bottom: 0px;
+    padding: 15px;
+    border: 1px solid ;
+}
