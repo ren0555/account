@@ -28,11 +28,28 @@ header{
 .confirm_right .insert{
     margin: 15px;
 }
-.modoru{
-    display: inline-block;
-    width: 100px;
+.buttons{
+    text-align: center;
+    margin: 0 auto;
+   
 }
-.touroku{
+.buttons .button1{
     display: inline-block;
-    width: 100px;
+    width: 70px;
+}
+.buttons .button2{
+    display: inline-block;
+    width: 70px;
+}
+
+
+footer{
+    text-align: center;
+    margin-bottom: 0px;
+    padding: 15px;
+    border: 1px solid;
+    
+}
+main{
+     border: 1px solid;
 }

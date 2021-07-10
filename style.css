@@ -1,3 +1,6 @@
+html{
+    height: 100%;
+}
 header{
     text-align: center;
     border: 1px solid;
@@ -13,12 +16,17 @@ form{
 main{
     border: 1px solid;
     height: 100%;
+  
+}
+body{
+    
 }
 .contents{
     text-align: left;
+    
 }
 .text{
-    margin: 15px 0px 15px 60px;
+    margin: 15px 0px 15px 44px;
 }
 .text1{
     margin: 15px 0px 15px 11px;
@@ -37,6 +45,9 @@ main{
 }
 .text5{
     margin: 15px 0px 15px 12px;
+}
+.yubin{
+    margin: 15px 0px 15px 60px;
 }
 
 /*ラベルの方にも大きさを設定し、マージンでそろえることで右側のテキストが揃えられるはず*/

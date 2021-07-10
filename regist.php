@@ -12,9 +12,9 @@
         <main>
             <form method="post"  action="regist_confirm2.php" name="XXX" maxlength="10">
                 <div class="contents">
-                    <label>名前(姓)</label>
+                    <label>名前（姓）</label>
                     <script>
-                        function check(){
+                        if(){
                             if(name1.length==0){
                                 decument.write("名前（姓）が未入力です。")
                             }else{
@@ -26,17 +26,17 @@
                 </div>
             
                 <div class="contents">
-                    <label>名前(名)</label>
+                    <label>名前（名）</label>
                     <input type="text" class="text" size="XXX" name="name2" maxlength="10">
                 </div>
             
                 <div class="contents">
-                    <label>カナ(姓)</label>
+                    <label>カナ（姓）</label>
                     <input type="text" class="text" size="XXX" name="name3" maxlength="10">
                 </div>
             
                 <div class="contents">
-                    <label>カナ(名)</label>
+                    <label>カナ（名）</label>
                     <input type="text" class="text" size="XXX" name="name4" maxlength="10">
                 </div>
             
@@ -58,7 +58,7 @@
             
                 <div class="contents">
                     <label>郵便番号</label>
-                    <input type="text" class="text" size="10" name="yubin" maxlength="7">
+                    <input type="text" class="yubin" size="10" name="yubin" maxlength="7">
                 </div>
             
                 <div class="contents">
@@ -133,7 +133,7 @@
                 </div>
             
                 <div class="kakunin">
-                    <input type="submit" value="確認する" class="bottun" onclick="check();returnfalse;">
+                    <input type="submit" value="確認する" class="bottun" onclick="">
                 </div>
             </form>
         </main>
