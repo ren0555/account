@@ -92,11 +92,12 @@
                 <form action="regist_complete.php" method="post" class="button2">
                     <input type="submit" value="登録する" >
                     <input type="hidden" value="<?php echo$_POST['name1'];?>" name="name1">
-                    <input type="hidden" value="<?php echo$_POST['name2'];?>" name="'name2">
+                    <input type="hidden" value="<?php echo$_POST['name2'];?>" name="name2">
                     <input type="hidden" value="<?php echo$_POST['name3'];?>" name="name3">
                     <input type="hidden" value="<?php echo$_POST['name4'];?>" name="name4">
                     <input type="hidden" value="<?php echo$_POST['mail'];?>" name="mail">
-                    
+                    <input type="hidden" value="<?php echo$_POST['password'];?>" name="password">
+                    <input type="hidden" value="<?php echo$_POST['seibetu'];?>" name="seibetu">
                     <input type="hidden" value="<?php echo$_POST['yubin'];?>" name="yubin">
                     <input type="hidden" value="<?php echo$_POST['prefecture'];?>" name="prefecture">
                     <input type="hidden" value="<?php echo$_POST['sikutyouson'];?>" name="sikutyouson">

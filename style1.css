@@ -19,9 +19,7 @@ header{
     margin: 20px;
 }
 
-.insert{
-    margin: 20px;
-}
+
 .confirm_right{
     display: inline-block;
     float: right;
@@ -30,7 +28,7 @@ header{
     
 }
 .confirm_right .insert{
-    margin: 15px;
+    margin: 20px;
 }
 .buttons{
     
