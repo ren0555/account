@@ -4,7 +4,7 @@
         <title>アカウント登録画面</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
     
     <body>
@@ -14,13 +14,6 @@
                 <div class="contents">
                     <label>名前（姓）</label>
                     <script>
-                        if(){
-                            if(name1.length==0){
-                                decument.write("名前（姓）が未入力です。")
-                            }else{
-                                form.submit();
-                            }
-                        }
                     </script>
                     <input type="text" class="text" size="XXX" name="name1" maxlength="10">
                 </div>
@@ -28,6 +21,16 @@
                 <div class="contents">
                     <label>名前（名）</label>
                     <input type="text" class="text" size="XXX" name="name2" maxlength="10">
+                    <script>
+                        $(function(){
+                            $(".button").click(function(){
+                                if (name2.length=0){
+                                        document.write("入力されていません。");
+                                        return false;
+                                    };
+                            });
+                        });
+                    </script>
                 </div>
             
                 <div class="contents">
@@ -133,7 +136,7 @@
                 </div>
             
                 <div class="kakunin">
-                    <input type="submit" value="確認する" class="bottun" onclick="">
+                    <input type="submit" value="確認する" class="bottun">
                 </div>
             </form>
         </main>

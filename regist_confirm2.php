@@ -86,11 +86,11 @@
                 </div>
             </div>
             <div class="buttons">
-                <form action="regist.php">
-                    <input type="submit" value="前に戻る" class="button1">
+                <form action="regist.php" class="button1">
+                    <input type="submit" value="前に戻る" >
                 </form>
                 <form action="regist_complete.php" method="post" class="button2">
-                    <input type="submit" value="登録する">
+                    <input type="submit" value="登録する" >
                     <input type="hidden" value="<?php echo$_POST['name1'];?>" name="name1">
                     <input type="hidden" value="<?php echo$_POST['name2'];?>" name="'name2">
                     <input type="hidden" value="<?php echo$_POST['name3'];?>" name="name3">

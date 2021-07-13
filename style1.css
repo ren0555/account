@@ -16,7 +16,11 @@ header{
     display: inline-block;
 }
 .confirm_left .contents{
-    margin: 15px;
+    margin: 20px;
+}
+
+.insert{
+    margin: 20px;
 }
 .confirm_right{
     display: inline-block;
@@ -29,17 +33,18 @@ header{
     margin: 15px;
 }
 .buttons{
+    
+    width: 100%;
     text-align: center;
-    margin: 0 auto;
    
 }
 .buttons .button1{
     display: inline-block;
-    width: 70px;
+    margin-right: 40px;
 }
 .buttons .button2{
     display: inline-block;
-    width: 70px;
+    margin-left: 40px;
 }
 
 
