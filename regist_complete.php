@@ -13,10 +13,15 @@ $pdo ->exec("insert into spi(family_name,last_name,family_name_kana,last_name_ka
         <title>アカウント登録確認</title>
         <link rel="stylesheet" type="text/css" href="style2.css">
     </head>
+    
     <body>
         <header>ナビゲーションバー</header>
         <main>
-            <h1>登録完了しました。</h1>
+            <div　class="a">アカウント登録完了画面</div>
+            <form>
+                <div class="touroku">登録完了しました</div>
+                <button class="top" onclick="location.href='../D.I.Blog/D.I.Blog.html'">TOPページへ戻る</button>
+            </form>
         </main>
     </body>
     <footer>フッター</footer>

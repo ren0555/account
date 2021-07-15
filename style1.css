@@ -3,35 +3,44 @@ header{
     border: 1px solid;
     padding: 15px;
 }
-
+.a{
+    padding-left: 70px;
+    font-size: 20px;
+    font-weight: 700;
+}
+h1{
+    display: inline-block;
+    margin: 0;
+}
 .confirm{
     text-align: center;
-    width: 400px;
-    margin: auto;
+    width: 100%; 
 }
 
 .confirm_left{
     text-align: left;
-    width: 200px;
+    width: 20%;
     display: inline-block;
 }
 .confirm_left .contents{
-    margin: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 200px;
+    
 }
 
 
 .confirm_right{
     display: inline-block;
-    float: right;
     text-align: left;
-    width: 200px;
-    
+    width: 20%;
 }
 .confirm_right .insert{
-    margin: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
 }
 .buttons{
-    
     width: 100%;
     text-align: center;
    
@@ -39,13 +48,22 @@ header{
 .buttons .button1{
     display: inline-block;
     margin-right: 40px;
+    
 }
+.button1 .back{
+    background-color: white;
+    padding: 20px 75px;
+}
+
 .buttons .button2{
     display: inline-block;
     margin-left: 40px;
 }
 
-
+.button2 .touroku{
+    background-color: white;
+    padding: 20px 75px;
+}
 footer{
     text-align: center;
     margin-bottom: 0px;
@@ -54,5 +72,13 @@ footer{
     
 }
 main{
-     border: 1px solid;
+     border-left: 1px solid;
+    border-right: 1px solid;
+    height: 81.3%;
+}
+bodu{
+    height: 100%;
+}
+html{
+    height: 100%;
 }

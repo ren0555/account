@@ -3,15 +3,39 @@ header{
     border: 1px solid;
     padding: 15px;
 }
+
+main{
+    border-right: 1px solid;
+    border-left: 1px solid;
+    height: 80%;
+    width: 100%;
+}
+main .a{
+    margin-left: 70px;
+    font-size: 20px;
+    font-weight: 700px;
+}
+.touroku{
+    font-size: 30px;
+    padding-top: 100px;
+    text-align: center;
+}
+form{
+    text-align: center;
+}
+.top{
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 60px;
+    padding-right: 60px;
+    display: inline-block;
+}
 footer{
     text-align: center;
     margin-bottom: 0px;
     padding: 15px;
-    border: 1px solid ;
-}
-main{
-    text-align: center;
-    border:  1px solid ;
+    border: 1px solid;
 }
 body{
     height: 100%;

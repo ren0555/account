@@ -1,6 +1,11 @@
 html{
     height: 100%;
 }
+.a{
+    margin-left: 70px;
+    font-size: 20px;
+    font-weight: 700;
+}
 header{
     text-align: center;
     border: 1px solid;
@@ -10,20 +15,37 @@ form{
     text-align: center;
     display: block;
     margin: auto;
-    width: 400px;
-    
+    width: 400px;    
+}
+.contents .text{
+    border: 2px solid;
+}
+.contents .text1{
+    border: 2px solid;
+}
+.contents .text2{
+    border: 2px solid;
+}
+.contents .text3{
+    border: 2px solid;
+}
+.contents .text4{
+    border: 2px solid;
+}
+.contents .yubin{
+    border: 2px solid;
 }
 main{
-    border: 1px solid;
-    height: 100%;
-  
+    border-right: 1px solid;
+    border-left: 1px solid;
+    height: 80%;
 }
 body{
-    
+    height: 100%;
 }
 .contents{
+
     text-align: left;
-    
 }
 .text{
     margin: 15px 0px 15px 44px;
@@ -45,6 +67,7 @@ body{
 }
 .text5{
     margin: 15px 0px 15px 12px;
+    border: 2px solid;
 }
 .yubin{
     margin: 15px 0px 15px 60px;
