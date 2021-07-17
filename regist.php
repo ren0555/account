@@ -112,56 +112,77 @@
                 </div>
             
                 <div class="contents">
+                    <?php
+                    $prifecture='';
+                    
+                    $prefectureList = array(
+                         "選択してください",
+                         "北海道",
+                         "青森県",
+                         "岩手県",
+                         "宮城県",
+                         "秋田県",
+                         "山形県",
+                         "福島県",
+                         "茨城県",
+                         "栃木県",
+                         "群馬県",
+                         "埼玉県",
+                         "千葉県",
+                         "東京都",
+                         "神奈川県",
+                         "新潟県",
+                         "富山県",
+                         "石川県",
+                         "福井県",
+                         "山梨県",
+                         "長野県",
+                         "岐阜県",
+                         "静岡県",
+                         "愛知県",
+                         "三重県",
+                         "滋賀県",
+                         "京都府",
+                         "大阪府",
+                         "兵庫県",
+                         "奈良県",
+                         "和歌山県",
+                         "鳥取県",
+                         "島根県",
+                         "岡山県",
+                         "広島県",
+                         "山口県",
+                         "徳島県",
+                         "香川県",
+                         "愛媛県",
+                         "高知県",
+                         "福岡県",
+                         "佐賀県",
+                         "長崎県",
+                         "熊本県",
+                         "大分県",
+                         "宮崎県",
+                         "鹿児島県",
+                         "沖縄県",
+                     );
+                    
+                    if (isset($_POST['prefecture'])){
+                        $prefecture=$_POST['prefecture'];
+                    }
+                    ?>
+                    
+                <div>
                     <label>住所(都道府県)</label>
-                    <select name="prefecture" class="text3" value="<?php if(!empty($_POST['prefecture'])){echo$_POST['prefecture'];}?>">
-                        <option hidden>選択してください</option>
-                        <option　<?php if($_POST['prefecture']==="北海道" && !empty($_POST['prefecture'])){echo 'selected';}?>>北海道</option>
-                        <option　<?php if($_POST['kengen']==="青森" && !empty($_POST['prefecture'])){echo 'selected';}?>>青森県</option>
-                        <option>岩手県</option>
-                        <option>宮城県</option>
-                        <option>秋田県</option>
-                        <option>山形県</option>
-                        <option>福島県</option>
-                        <option>茨城県</option>
-                        <option>栃木県</option>
-                        <option>群馬県</option>
-                        <option>埼玉県</option>
-                        <option>千葉県</option>
-                        <option>東京都</option>
-                        <option>神奈川県</option>
-                        <option>新潟県</option>
-                        <option>富山県</option>
-                        <option>石川県</option>
-                        <option>福井県</option>
-                        <option>山梨県</option>
-                        <option>長野県</option>
-                        <option>岐阜県</option>
-                        <option>静岡県</option>
-                        <option>愛知県</option>
-                        <option>三重県</option>
-                        <option>滋賀県</option>
-                        <option>京都府</option>
-                        <option>大阪府</option>
-                        <option>兵庫県</option>
-                        <option>奈良県</option>
-                        <option>和歌山県</option>
-                        <option>鳥取県</option>
-                        <option>島根県</option>
-                        <option>岡山県</option>
-                        <option>広島県</option>
-                        <option>山口県</option>
-                        <option>徳島県</option>
-                        <option>香川県</option>
-                        <option>愛媛県</option>
-                        <option>高知県</option>
-                        <option>福岡県</option>
-                        <option>佐賀県</option>
-                        <option>長崎県</option>
-                        <option>熊本県</option>
-                        <option>大分県</option>
-                        <option>宮崎県</option>
-                        <option>鹿児島県</option>
-                        <option>沖縄県</option>
+                    <select name="prefecture" class="text2">
+                    <?php
+                        foreach($prefectureList as $value){
+                            if($value === $prefecture){
+                                echo "<option value='$value' selected>".$value."</option>";
+                            }else{
+                                echo "<option value='$value'>".$value."</option>";
+                            }
+                        }
+                        ?>
                     </select>
                 </div>
             
@@ -174,13 +195,31 @@
                     <label>住所(番地)</label>
                     <input type="text"class="text4" name="banti" value="<?php if(!empty($_POST['banti'])){echo$_POST['banti'];}?>" maxlength="100">
                 </div>
-
+                
+                <?php
+                    $kengen='';
+                    
+                    $kengenList=array(
+                    "一般",
+                    "管理者",
+                    );
+                    
+                    if (isset($_POST['kengen'])){
+                        $kengen === $_POST['kengen'];
+                    }
+                ?>
                 <div class="contents">
                     <label>アカウント権限</label>
-                    <select name="kengen" class="text5" value="<?php if(!empty($_POST['kengen'])){echo$_POST['kengen'];}?>">
-                        <option hidden>選択してください</option>
-                        <option <?php if($_POST['kengen']==="一般" && !empty($_POST['kengen'])){echo 'selected';}?>>一般</option>
-                        <option <?php if($_POST['kengen']==="管理者" && !empty($_POST['kengen'])){echo 'selected';}?>>管理者</option>
+                    <select name="kengen" class="text5">
+                    <?php
+                        foreach($kengenList as $value){
+                            if($kengenList === $kengen){
+                                echo "<option value='$value' selected>".$value."</option>";
+                            }else{
+                                echo "<option value='$value'>".$value."</option>";
+                            }
+                        }
+                    ?>
                     </select>
                 </div>
             
