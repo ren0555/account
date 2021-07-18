@@ -54,7 +54,7 @@ body{
     margin: 15px 0px 15px 11px;
 }
 .text2{
-    margin: 15px 0px 15px 25px;
+    margin: 15px 0px 15px 43px;
 }
 .radio{
     margin: 15px 0px 15px 90px;
@@ -67,6 +67,10 @@ body{
 }
 .text5{
     margin: 15px 0px 15px 12px;
+    border: 2px solid;
+}
+.text6{
+    margin: 15px 0px 15px 15px;
     border: 2px solid;
 }
 .yubin{

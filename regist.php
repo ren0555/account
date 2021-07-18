@@ -170,10 +170,10 @@
                         $prefecture=$_POST['prefecture'];
                     }
                     ?>
-                    
-                <div>
+                </div>   
+                <div class="contents">
                     <label>住所(都道府県)</label>
-                    <select name="prefecture" class="text2">
+                    <select name="prefecture" class="text6">
                     <?php
                         foreach($prefectureList as $value){
                             if($value === $prefecture){

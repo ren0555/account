@@ -2,6 +2,7 @@ header{
     text-align: center;
     border: 1px solid;
     padding: 15px;
+    width: 98.4%;
 }
 
 main{
@@ -9,22 +10,24 @@ main{
     border-left: 1px solid;
     height: 80%;
     width: 100%;
-}
-main .a{
-    margin-left: 70px;
-    font-size: 20px;
-    font-weight: 700px;
-}
-.touroku{
-    font-size: 30px;
-    padding-top: 100px;
     text-align: center;
 }
-form{
+.abc{
+    float: left;
+    font-size: 20px;
+    margin-left: 60px;
+    font-weight: 700px;
+    text-align: center;
+}
+.touroku{
+    font-weight: 700px;
+    font-size: 30px;
+    padding-top: 10%;
     text-align: center;
 }
 .top{
     background-color: white;
+    margin-top: 15%;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 60px;
@@ -36,6 +39,7 @@ footer{
     margin-bottom: 0px;
     padding: 15px;
     border: 1px solid;
+    width: 98.4%;
 }
 body{
     height: 100%;
