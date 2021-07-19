@@ -67,7 +67,7 @@
         <header>ナビゲーションバー</header>
         <main>
             <div class="a">アカウント登録画面</div>
-            <form method="post"  action="regist_confirm2.php" name="form" maxlength="10">
+            <form method="post"  action="regist_confirm.php" name="form" maxlength="10">
                 <div class="contents">
                     <label>名前（姓）</label>
                     <script>
