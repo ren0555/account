@@ -1,0 +1,13 @@
+main{
+    text-align: center;
+    border: 1px solid;
+}
+.hyouzi{
+    color: red;
+    font-size: 30px;
+}
+
+.top{
+    margin-top: 5%;
+    margin-bottom: 10px;
+}

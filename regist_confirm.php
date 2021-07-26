@@ -6,6 +6,11 @@
         <link rel="stylesheet" href="style1.css">
     </head>
     <body>
+        <?php
+            if ($_POST['name1']==""){
+                header("Location: error.php");
+            }   
+        ?>
         <header>ナビゲーションバー</header>
         
         <main>

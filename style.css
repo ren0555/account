@@ -87,7 +87,69 @@ body{
 }
 footer{
     text-align: center;
+    margin-top: auto;
     margin-bottom: 0px;
     padding: 15px;
     border: 1px solid ;
+}
+
+#error1{
+    font-size: 15px;
+    color: red;
+    margin: -9px 0px -9px 130px;
+}
+#error2{
+    font-size: 15px;
+    color: red;
+    margin: -9px 0px -9px 130px;
+}
+#error3{
+    font-size: 15px;
+    color: red;
+    margin: -9px 0px -9px 130px;
+}
+#error4{
+    font-size: 15px;
+    color: red;
+    margin: -9px 0px -9px 130px;
+}
+#error5{
+    font-size: 15px;
+    color: red;
+    margin: -9px 0px -9px 130px;
+}
+#error6{
+    font-size: 15px;
+    color: red;
+    margin: -9px 0px -9px 130px;
+}
+#error7{
+    font-size: 15px;
+    color: red;
+    margin: -9px 0px -9px 130px;
+}
+#error8{
+    font-size: 15px;
+    color: red;
+    margin: -9px 0px -9px 130px;
+}
+#error9{
+    font-size: 15px;
+    color: red;
+    margin: -9px 0px -9px 130px;
+}
+#error10{
+    font-size: 15px;
+    color: red;
+    margin: -9px 0px -9px 130px;
+}
+#error11{
+    font-size: 15px;
+    color: red;
+    margin: -9px 0px -9px 130px;
+}
+#error12{
+    color: red;
+    margin: -9px 0px -9px 130px;
+    font-size: 15px;
 }

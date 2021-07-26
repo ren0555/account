@@ -6,60 +6,57 @@
         <link rel="stylesheet" href="style.css">
         <script type="text/javascript">
             function check(){
-                for(var i=1; i<2;i++){
-                    var hairetu =[];
                     if(form.name1.value == ""){
-                          hairetu.push("名前（姓）を入力してください");
+                          return false;
                     }
                     if(form.name2.value == ""){
-                        hairetu.push("名前（名）を入力してください");
+                        return false;
                     }
                     if(form.name3.value == ""){
-                        hairetu.push("カナ（姓）を入力してください");
+                        return false;
                     }
                     if(form.name3.value.match(/[^ァ-ヶー　]+$/)){
-                        hairetu.push("カナ（姓）を全角カタカナで入力してください");
+                        return false;
                     }
                     if(form.name4.value == ""){
-                        hairetu.push("カナ（名）を入力してください");
+                        return false;
                     }
                     if(form.name4.value.match(/[^ァ-ヶー　]+$/)){
-                        hairetu.push("カナ（名）を全角カタカナで入力してください");
+                        return false;
                     }
                     if(form.mail.value == ""){
-                        hairetu.push("メールアドレスを入力してください")
+                        return false;
                     }
                     if(form.password.value == ""){
-                        hairetu.push("パスワードを入力してください");
+                        return false;
                     }
                     if(document.form.seibetu[0].checked || document.form.seibetu[1].checked){
                     }else{
-                        hairetu.push("性別が選択されていません");
+                        return false;
                     }
                     if(form.yubin.value == ""){
-                        hairetu.push("郵便番号を入力してください");
+                        return false;
                     }
                     if(form.yubin.value.match(/[^0-9]+/)){
-                        hairetu.push("郵便番号を半角数字で入力してください");
+                       return false;
                     }
                     if(form.prefecture.value=="選択してください"){
-                        hairetu.push("都道府県を選択してください");
+                        return false;
                     }
                     if(form.sikutyouson.value == ""){
-                        hairetu.push("住所(市区町村)を入力してください");
-                    }
+                        return false;
+                    }else if(form.sikutyouson.value.match(/^[a-zA-Z]*$/)){
+                             return false;
+                             }
                     if(form.banti.value == ""){
-                        hairetu.push("住所(番地)を入力してください");
-                    }
+                        return false;
+                    }else if(form.sikutyouson.value.match(/^[a-zA-Z]*$/)){
+                             return false;
+                             }
                     if(form.kengen.value=="選択してください"){
-                        hairetu.push("アカウント権限を選択してください");
+                        return false;
                     }
                 };
-                if(hairetu.length>0){
-                        alert(hairetu.join("\n"));
-                    return false;
-                }
-            }
     </script>
     </head>
     
@@ -70,45 +67,51 @@
             <form method="post"  action="regist_confirm.php" name="form" maxlength="10">
                 <div class="contents">
                     <label>名前（姓）</label>
-                    <script>
-                    </script>
-                    <input type="text" class="text" name="name1" value="<?php if(!empty($_POST['name1'])){echo$_POST['name1'];}?>" maxlength="10">
+                    <input type="text" class="text" name="name1" value="<?php if(!empty($_POST['name1']))  {echo$_POST['name1'];}?>" maxlength="10">
+                    <div id ="error1"></div>
                 </div>
             
                 <div class="contents">
                     <label>名前（名）</label>
                     <input type="text" class="text" name="name2" value="<?php if(!empty($_POST['name2'])){echo$_POST['name2'];}?>" maxlength="10">
+                    <div id ="error2"></div>
                 </div>
             
                 <div class="contents">
                     <label>カナ（姓）</label>
                     <input type="text" placeholder="カタカナのみ可" class="text" name="name3"value="<?php if(!empty($_POST['name3'])){echo$_POST['name3'];}?>" maxlength="10">
+                    <div id ="error3"></div>
                 </div> 
                 
                 <div class="contents">
                     <label>カナ（名）</label>
                     <input type="text" placeholder="カタカナのみ可" class="text" name="name4" value="<?php if(!empty($_POST['name4'])){echo$_POST['name4'];}?>" maxlength="10">
+                    <div id ="error4"></div>
                 </div>
             
                 <div class="contents">
                     <label>メールアドレス</label>
                     <input type="email" class="text1" size="XXX" name="mail" value="<?php if(!empty($_POST['mail'])){echo$_POST['mail'];}?>" maxlength="100">
+                    <div id ="error5"></div>
                 </div>
             
                 <div class="contents">
                     <label>パスワード</label>
                     <input type="password" class="text2" size="XXX" name="password" value="<?php if(!empty($_POST['password'])){echo$_POST['password'];}?>" maxlength="10">
+                    <div id ="error6"></div>
                 </div>
             
                 <div class="contents">
                     <label>性別</label>
-                    <input type="radio"  name="seibetu" class="radio" value="0" <?php if(filter_input(INPUT_POST,'seibetu') === "0"){echo 'checked';}?>>男
+                    <input type="radio"  name="seibetu" class="radio" value="0" checked <?php if(filter_input(INPUT_POST,'seibetu') === "0"){echo 'checked';}?>>男
                     <input type="radio"  name="seibetu" class="radio" value="1" <?php if(!empty($_POST['seibetu']) && $_POST['seibetu']==="1"){echo 'checked';}?>>女
+                    <div id ="error7"></div>
                 </div>
             
                 <div class="contents">
                     <label>郵便番号</label>
                     <input type="tel" class="yubin" size="10" name="yubin" placeholder="半角数字のみ可" value="<?php if(!empty($_POST['yubin'])){echo$_POST['yubin'];}?>" maxlength="7"　>
+                    <div id ="error8"></div>
                 </div>
             
                 <div class="contents">
@@ -183,17 +186,21 @@
                             }
                         }
                         ?>
+                        
                     </select>
+                    <div id ="error9"></div>
                 </div>
             
                 <div class="contents">
                     <label>住所(市区町村)</label>
                     <input type="text"class="text3" name="sikutyouson" value="<?php if(!empty($_POST['sikutyouson'])){echo$_POST['sikutyouson'];}?>" maxlength="10">
+                    <div id ="error10"></div>
                 </div>
                 
                 <div class="contents">
                     <label>住所(番地)</label>
                     <input type="text"class="text4" name="banti" value="<?php if(!empty($_POST['banti'])){echo$_POST['banti'];}?>" maxlength="100">
+                    <div id ="error11"></div>
                 </div>
                 
                 <?php
@@ -221,14 +228,17 @@
                         }
                     ?>
                     </select>
+                    <div id ="error12"></div>
                 </div>
             
                 <div class="kakunin">
-                    <input type="submit" value="確認する" class="bottun" onclick="return check()">
+                    <input type="submit" value="確認する" id="kakunin" class="bottun" onclick="return check()">
                 </div>
             </form>
+            
         </main>
         <footer>フッター</footer>
+        <script src="script.js"></script>
     </body>
 
 </html>
