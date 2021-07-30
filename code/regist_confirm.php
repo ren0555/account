@@ -106,6 +106,7 @@
                     <input type="hidden" value="<?php echo$_POST['banti'];?>" name="banti">
                     <input type="hidden" value="<?php echo$_POST['kengen'];?>" name="kengen">
                 </form>
+                
                 <form action="regist_complete.php" method="post" class="button2">
                     <input type="submit" value="登録する" class="touroku">
                     <input type="hidden" value="<?php echo$_POST['name1'];?>" name="name1">

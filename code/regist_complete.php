@@ -7,10 +7,18 @@ if ($_POST['name1']==""){
 }else{
     $pdo = new PDO("mysql:dbname=regist;host=localhost;","root","renta1216");
     $_POST['password']= password_hash($_POST['password'],PASSWORD_DEFAULT);
-    $_POST['registered_time']= date('Y-m-d H:i:s');
+    $_POST['registered_time']= date('Y/m/d H;i;s');
+    $_POST['update_time']= date('Y/m/d H;i;s');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    $pdo ->exec("insert into spi(family_name,last_name,family_name_kana,last_name_kana,mail,password,gender,postal_code,prefecture,address_1,address_2,authority,registered_time)values('".$_POST['name1']."','".$_POST['name2']."','".$_POST['name3']."','".$_POST['name4']."','".$_POST['mail']."','".$_POST['password']."','".$_POST['seibetu']."','".$_POST['yubin']."','".$_POST['prefecture']."','".$_POST['sikutyouson']."','".$_POST['banti']."','".$_POST['kengen']."','".$_POST['registered_time']."');");
+    if ($_POST['kengen']=="一般"){
+        $kengen = 0;
+    }else{
+        $kengen = 1;
+    }
+    
+    
+    $pdo ->exec("insert into spi(family_name,last_name,family_name_kana,last_name_kana,mail,password,gender,postal_code,prefecture,address_1,address_2,authority,registered_time,update_time)values('".$_POST['name1']."','".$_POST['name2']."','".$_POST['name3']."','".$_POST['name4']."','".$_POST['mail']."','".$_POST['password']."','".$_POST['seibetu']."','".$_POST['yubin']."','".$_POST['prefecture']."','".$_POST['sikutyouson']."','".$_POST['banti']."','".$kengen."','".$_POST['registered_time']."','".$_POST['update_time']."');");
 }
 ?>
 
