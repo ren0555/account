@@ -48,33 +48,33 @@ body{
     text-align: left;
 }
 .text{
-    margin: 15px 0px 15px 44px;
+    margin: 5px 0px 5px 44px;
 }
 .text1{
-    margin: 15px 0px 15px 11px;
+    margin: 5px 0px 5px 11px;
 }
 .text2{
-    margin: 15px 0px 15px 43px;
+    margin: 5px 0px 5px 43px;
 }
 .radio{
-    margin: 15px 0px 15px 90px;
+    margin: 5px 0px 5px 90px;
 }
 .text3{
-    margin: 15px 0px 15px 13px;
+    margin: 5px 0px 5px 13px;
 }
 .text4{
-    margin: 15px 0px 15px 45px;
+    margin: 5px 0px 5px 45px;
 }
 .text5{
-    margin: 15px 0px 15px 12px;
+    margin: 5px 0px 5px 12px;
     border: 2px solid;
 }
 .text6{
-    margin: 15px 0px 15px 15px;
+    margin: 5px 0px 15px 15px;
     border: 2px solid;
 }
 .yubin{
-    margin: 15px 0px 15px 60px;
+    margin: 5px 0px 15px 60px;
 }
 
 /*ラベルの方にも大きさを設定し、マージンでそろえることで右側のテキストが揃えられるはず*/
@@ -95,61 +95,62 @@ footer{
 
 #error1{
     font-size: 15px;
+    margin-left: 130px;
     color: red;
-    margin: -9px 0px -9px 130px;
+    
 }
 #error2{
     font-size: 15px;
     color: red;
-    margin: -9px 0px -9px 130px;
+    margin-left: 130px;
 }
 #error3{
     font-size: 15px;
     color: red;
-    margin: -9px 0px -9px 130px;
+    margin-left: 130px;
 }
 #error4{
     font-size: 15px;
     color: red;
-    margin: -9px 0px -9px 130px;
+    margin-left: 130px;
 }
 #error5{
     font-size: 15px;
     color: red;
-    margin: -9px 0px -9px 130px;
+    margin-left: 130px;
 }
 #error6{
     font-size: 15px;
     color: red;
-    margin: -9px 0px -9px 130px;
+    margin-left: 130px;
 }
 #error7{
     font-size: 15px;
     color: red;
-    margin: -9px 0px -9px 130px;
+    margin-left: 130px;
 }
 #error8{
     font-size: 15px;
     color: red;
-    margin: -9px 0px -9px 130px;
+   margin-left: 130px;
 }
 #error9{
     font-size: 15px;
     color: red;
-    margin: -9px 0px -9px 130px;
+    margin-left: 130px;
 }
 #error10{
     font-size: 15px;
     color: red;
-    margin: -9px 0px -9px 130px;
+    margin-left: 130px;
 }
 #error11{
     font-size: 15px;
     color: red;
-    margin: -9px 0px -9px 130px;
+    margin-left: 130px;
 }
 #error12{
     color: red;
-    margin: -9px 0px -9px 130px;
+    margin-left: 130px;
     font-size: 15px;
 }

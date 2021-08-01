@@ -68,50 +68,50 @@
                 <div class="contents">
                     <label>名前（姓）</label>
                     <input type="text" class="text" name="name1" value="<?php if(!empty($_POST['name1']))  {echo$_POST['name1'];}?>" maxlength="10">
-                    <div id ="error1"></div>
+                    <div id ="error1"><br></div>
                 </div>
             
                 <div class="contents">
                     <label>名前（名）</label>
                     <input type="text" class="text" name="name2" value="<?php if(!empty($_POST['name2'])){echo$_POST['name2'];}?>" maxlength="10">
-                    <div id ="error2"></div>
+                    <div id ="error2"><br></div>
                 </div>
             
                 <div class="contents">
                     <label>カナ（姓）</label>
                     <input type="text" placeholder="カタカナのみ可" class="text" name="name3"value="<?php if(!empty($_POST['name3'])){echo$_POST['name3'];}?>" maxlength="10">
-                    <div id ="error3"></div>
+                    <div id ="error3"><br></div>
                 </div> 
                 
                 <div class="contents">
                     <label>カナ（名）</label>
                     <input type="text" placeholder="カタカナのみ可" class="text" name="name4" value="<?php if(!empty($_POST['name4'])){echo$_POST['name4'];}?>" maxlength="10">
-                    <div id ="error4"></div>
+                    <div id ="error4"><br></div>
                 </div>
             
                 <div class="contents">
                     <label>メールアドレス</label>
                     <input type="email" class="text1" size="XXX" name="mail" value="<?php if(!empty($_POST['mail'])){echo$_POST['mail'];}?>" maxlength="100">
-                    <div id ="error5"></div>
+                    <div id ="error5"><br></div>
                 </div>
             
                 <div class="contents">
                     <label>パスワード</label>
                     <input type="password" class="text2" size="XXX" name="password" value="<?php if(!empty($_POST['password'])){echo$_POST['password'];}?>" maxlength="10">
-                    <div id ="error6"></div>
+                    <div id ="error6"><br></div>
                 </div>
             
                 <div class="contents">
                     <label>性別</label>
                     <input type="radio"  name="seibetu" class="radio" value="0" checked <?php if(filter_input(INPUT_POST,'seibetu') === "0"){echo 'checked';}?>>男
                     <input type="radio"  name="seibetu" class="radio" value="1" <?php if(!empty($_POST['seibetu']) && $_POST['seibetu']==="1"){echo 'checked';}?>>女
-                    <div id ="error7"></div>
+                    <div id ="error7"><br></div>
                 </div>
             
                 <div class="contents">
                     <label>郵便番号</label>
                     <input type="tel" class="yubin" size="10" name="yubin" placeholder="半角数字のみ可" value="<?php if(!empty($_POST['yubin'])){echo$_POST['yubin'];}?>" maxlength="7"　>
-                    <div id ="error8"></div>
+                    <div id ="error8"><br></div>
                 </div>
             
                 <div class="contents">
@@ -188,19 +188,19 @@
                         ?>
                         
                     </select>
-                    <div id ="error9"></div>
+                    <div id ="error9"><br></div>
                 </div>
             
                 <div class="contents">
                     <label>住所(市区町村)</label>
                     <input type="text"class="text3" name="sikutyouson" value="<?php if(!empty($_POST['sikutyouson'])){echo$_POST['sikutyouson'];}?>" maxlength="10">
-                    <div id ="error10"></div>
+                    <div id ="error10"><br></div>
                 </div>
                 
                 <div class="contents">
                     <label>住所(番地)</label>
                     <input type="text"class="text4" name="banti" value="<?php if(!empty($_POST['banti'])){echo$_POST['banti'];}?>" maxlength="100">
-                    <div id ="error11"></div>
+                    <div id ="error11"><br></div>
                 </div>
                 
                 <?php
@@ -228,7 +228,7 @@
                         }
                     ?>
                     </select>
-                    <div id ="error12"></div>
+                    <div id ="error12"><br></div>
                 </div>
             
                 <div class="kakunin">

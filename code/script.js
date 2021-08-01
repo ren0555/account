@@ -46,13 +46,7 @@ kakunin.addEventListener("click",function(){
         document.getElementById("error6").textContent = "";
     }
 });
-kakunin.addEventListener("click",function(){
-    if (form.seibetu.value==""){
-        document.getElementById("error7").textContent = "性別未が入力です。";
-    }else{
-        document.getElementById("error7").textContent = "";
-    }
-});
+
 kakunin.addEventListener("click",function(){
     if (form.yubin.value==""){
         document.getElementById("error8").textContent = "郵便番号が未入力です。";

@@ -10,6 +10,7 @@
         mb_internal_encoding("utf8");
         $pdo = new PDO("mysql:dbname=regist;host=localhost;","root","renta1216");
         $stmt = $pdo ->query("select * from spi");
+        $stmt = $pdo ->query("select * from spi order by id desc")
         ?>
             <header>ナビゲーションバー</header>
             <main>
@@ -24,10 +25,12 @@
                     
                     $row['registered_time']=date('Y/m/d');
                     
+                    
                      if($row['id']=""){
                         
                     }else{
-                    while($row= $stmt->fetch()){
+                         
+                    foreach($stmt as $row){
                         
                         if($row['gender'] == 0){
                             $seibetsu = "男";
