@@ -43,6 +43,11 @@
                         }else{
                             $kengen = "管理者";
                         }
+                        if($row['delete_flag'] == 0){
+                            $delete = "有効";
+                        }else{
+                            $delete = "無効";
+                        }
                    
                         echo"<tr>";
                             echo"<td>".$row['id']."</td>";
@@ -53,11 +58,39 @@
                             echo"<td>".$row['mail']."</td>";
                             echo"<td>".$seibetsu."</td>";
                             echo"<td>".$kengen."</td>";
-                            echo"<td>".$row['delete_flag']."</td>";
+                            echo"<td>".$delete."</td>";
                             echo"<td>".date('Y/m/d', strtotime($row['registered_time']))."</td>";
                             echo"<td>".date('Y/m/d', strtotime($row['update_time']))."</td>";
-                            echo"<td><a href='update.php'>更新</a></td>";
-                            echo"<td><a href='delete.php'>削除</a></td>";
+                        
+                            echo"<form action='update.php' method='post'>";
+                            echo"<td><input type='submit' value='更新'></td>";
+                            echo"<input type='hidden' value=".$row['family_name']." name='name1'>";
+                            echo"<input type='hidden' value=".$row['last_name']." name='name2'>";        
+                            echo"<input type='hidden' value=".$row['family_name_kana']." name='name3'>";
+                            echo"<input type='hidden' value=".$row['last_name_kana']." name='name4'>";
+                            echo"<input type='hidden' value=".$row['mail']." name='mail'>";
+                            echo"<input type='hidden' value=".$row['gender']." name='gender'>";
+                            echo"<input type='hidden' value=".$row['postal_code']." name='yubin'>";
+                            echo"<input type='hidden' value=".$row['password']." name='password'>";
+                            echo"<input type='hidden' value=".$row['prefecture']." name='prefecture'>";
+                            echo"<input type='hidden' value=".$row['address_1']." name='address1'>";
+                            echo"<input type='hidden' value=".$row['address_2']." name='address2'>";
+                            echo"<input type='hidden' value=".$row['authority']." name='authority'></form>";
+                        
+                            echo"<form action='delete.php' method='post'>";
+                            echo"<td><input type='submit' value='削除'></td>";
+                            echo"<input type='hidden' value=".$row['family_name']." name='name1'>";
+                            echo"<input type='hidden' value=".$row['last_name']." name='name2'>";        
+                            echo"<input type='hidden' value=".$row['family_name_kana']." name='name3'>";
+                            echo"<input type='hidden' value=".$row['last_name_kana']." name='name4'>";
+                            echo"<input type='hidden' value=".$row['mail']." name='mail'>";
+                            echo"<input type='hidden' value=".$row['gender']." name='gender'>";
+                            echo"<input type='hidden' value=".$row['postal_code']." name='yubin'>";
+                            echo"<input type='hidden' value=".$row['password']." name='password'>";
+                            echo"<input type='hidden' value=".$row['prefecture']." name='prefecture'>";
+                            echo"<input type='hidden' value=".$row['address_1']." name='address1'>";
+                            echo"<input type='hidden' value=".$row['address_2']." name='address2'>";
+                            echo"<input type='hidden' value=".$row['authority']." name='authority'></form>";
                             
                         echo "</tr>";
                      }}

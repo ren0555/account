@@ -84,6 +84,7 @@ body{
 .bottun{
     padding: 20px 75px;
     background-color: white;
+    margin-top: -10px;
 }
 footer{
     text-align: center;

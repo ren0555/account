@@ -59,6 +59,12 @@ h1{
     display: inline-block;
     margin-left: 40px;
 }
+.buttons .button3{
+    display: inline-block;
+    background-color: white;
+    padding: 20px 75px;
+    margin-top: 30px;
+}
 
 .button2 .touroku{
     background-color: white;
