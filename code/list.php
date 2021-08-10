@@ -75,7 +75,8 @@
                             echo"<input type='hidden' value=".$row['prefecture']." name='prefecture'>";
                             echo"<input type='hidden' value=".$row['address_1']." name='address1'>";
                             echo"<input type='hidden' value=".$row['address_2']." name='address2'>";
-                            echo"<input type='hidden' value=".$row['authority']." name='authority'></form>";
+                            echo"<input type='hidden' value=".$kengen." name='authority'>";
+                            echo"<input type='hidden' value=".$row['id']." name='id'></form>";
                         
                             echo"<form action='delete.php' method='post'>";
                             echo"<td><input type='submit' value='削除'></td>";
@@ -90,7 +91,8 @@
                             echo"<input type='hidden' value=".$row['prefecture']." name='prefecture'>";
                             echo"<input type='hidden' value=".$row['address_1']." name='address1'>";
                             echo"<input type='hidden' value=".$row['address_2']." name='address2'>";
-                            echo"<input type='hidden' value=".$row['authority']." name='authority'></form>";
+                            echo"<input type='hidden' value=".$kengen." name='authority'>";
+                            echo"<input type='hidden' value=".$row['id']." name='id'></form>";
                             
                         echo "</tr>";
                      }}

@@ -84,7 +84,7 @@ body{
 .bottun{
     padding: 20px 75px;
     background-color: white;
-    margin-top: -10px;
+    margin-top: -40px;
 }
 footer{
     text-align: center;
@@ -154,4 +154,8 @@ footer{
     color: red;
     margin-left: 130px;
     font-size: 15px;
+}
+.authority{
+    margin-left: 10px;
+    border: 2px solid black;
 }

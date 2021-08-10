@@ -2,12 +2,36 @@ main{
     text-align: center;
     border: 1px solid;
 }
+header{
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    text-align: center;
+     padding: 15px;
+}
 .hyouzi{
     color: red;
     font-size: 30px;
+    padding-top: 20%;
 }
 
 .top{
-    margin-top: 5%;
+    margin-top: 15%;
     margin-bottom: 10px;
+    background-color: white;
+    padding: 20px 75px;
+}
+footer{
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    text-align: center;
+     padding: 15px;
+    
+}
+main{
+    height: 80%;
+}
+html{
+    height: 100%;
 }

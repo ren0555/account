@@ -61,6 +61,7 @@
     </head>
     
     <body>
+        
         <header>ナビゲーションバー</header>
         <main>
             <div class="a">アカウント登録画面</div>
@@ -204,30 +205,31 @@
                 </div>
                 
                 <?php
-                    $kengen='';
-                    
-                    $kengenList=array(
-                    "一般",
-                    "管理者",
-                    );
-                    
-                    if (isset($_POST['kengen'])){
-                        $kengen === $_POST['kengen'];
-                    }
-                ?>
+                
+                $a="";
+                $b="";
+                
+                if(!empty($_POST['kengen'])){
+                    $kengen= $_POST['kengen'];
+                }else{
+                    $kengen="";
+                }
+                
+                if($kengen==="一般"){
+                    $a="selected";
+                }else if($kengen==="管理人"){
+                    $b="selected";
+                }
+               ?>
                 <div class="contents">
                     <label>アカウント権限</label>
-                    <select name="kengen" class="text5">
-                    <?php
-                        foreach($kengenList as $value){
-                            if($kengenList === $kengen){
-                                echo "<option value='$value' selected>".$value."</option>";
-                            }else{
-                                echo "<option value='$value'>".$value."</option>";
-                            }
-                        }
-                    ?>
+                    <select name="kengen" class="authority">
+                        <option <?php echo $a ?> >一般</option>
+                        <option <?php echo $b ?> >管理人</option>
                     </select>
+                    <div id ="error12"><br></div>
+                    
+                   
                     <div id ="error12"><br></div>
                 </div>
             

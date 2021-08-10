@@ -1,0 +1,77 @@
+header{
+    text-align: center;
+    border: 1px solid;
+    padding: 15px;
+}
+
+
+
+.buttons{
+    width: 100%;
+    text-align: center;
+    padding-top: 10%;
+}
+main{
+    text-align: center;
+}
+
+.buttons .button1{
+    display: inline-block;
+    margin-right: 40px; 
+}
+.a{
+    font-size: 60px;
+}
+
+.buttons .button1{
+    display: inline-block;
+    margin-left: 40px;
+    background-color: white;
+    
+}
+.buttons .button2{
+    display: inline-block;
+    background-color: white;
+    padding: 20px 75px;
+    margin-top: 30px;
+}
+.button1 .back{
+    background-color: white;
+    padding: 20px 75px;
+}
+
+.button2 .go{
+    background-color: white;
+    padding: 20px 75px;
+}
+footer{
+    text-align: center;
+    margin-bottom: 0px;
+    padding: 15px;
+    border: 1px solid;
+    
+}
+.button{
+    background-color: white;
+    padding: 20px 75px;
+    margin-top: 20%;
+}
+main{
+     border-left: 1px solid;
+    border-right: 1px solid;
+    height: 90%;
+}
+body{
+    height: 88%;
+}
+html{
+    height: 100%;
+    width: 100%;
+}
+h1{
+    padding-top: 15%;
+}
+h3{
+    margin-top: auto;
+    margin-left: -80%;
+}

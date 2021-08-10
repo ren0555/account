@@ -101,6 +101,7 @@
                     <input type="hidden" value="<?php echo$_POST['address1'];?>" name="address1">
                     <input type="hidden" value="<?php echo$_POST['address2'];?>" name="address2">
                     <input type="hidden" value="<?php echo$_POST['authority'];?>" name="authority">
+                    <input type="hidden" value="<?php echo$_POST['id'];?>" name="id">
                 </form>
             </div>
         </main>
