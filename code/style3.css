@@ -29,9 +29,28 @@ footer{
      padding: 15px;
     
 }
+h3{
+    margin-left: -80%;
+}
 main{
     height: 80%;
 }
 html{
     height: 100%;
+}
+.pass{
+    margin-top: 15%;
+}
+.pass2{
+    padding-top: 15%;
+}
+.update{
+    background-color: white;
+    padding: 20px 75px;
+}
+
+#error6{
+    font-size: 15px;
+    color: red;
+    margin-left: 130px;
 }

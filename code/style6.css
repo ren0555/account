@@ -1,5 +1,6 @@
 html{
     height: 100%;
+    width: 100%;
 }
 .a{
     margin-left: 70px;
@@ -39,6 +40,7 @@ main{
     border-right: 1px solid;
     border-left: 1px solid;
     height: 80%;
+    width: 100%;
 }
 body{
     height: 100%;
@@ -167,7 +169,12 @@ footer{
     display: inline-block;
 }
 .pass2{
-    margin-left: 320px;
+    margin-left: 20px;
     
     padding: 3px;
+}
+.pass3{
+    margin-left: 43px;
+    background-color: white;
+    display: inline-block;
 }

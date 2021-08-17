@@ -89,4 +89,24 @@ kakunin.addEventListener("click",function(){
     }
 });
 
+kakunin.addEventListener("click",function(){
+    if (form.address1.value==""){
+        document.getElementById("error10").textContent = "住所(市区町村)が未入力です。";
+    }else if(form.address1.value.match(/[a-zA-Z]+$/)){
+        document.getElementById("error10").textContent = "英字が含まれています。"
+    }else{
+        document.getElementById("error10").innerText = "\n";
+    }
+});
+kakunin.addEventListener("click",function(){
+    if (form.address2.value==""){
+        document.getElementById("error11").textContent = "住所(番地)が未入力です。";
+    }else if(form.address2.value.match(/[a-zA-Z]+$/)){
+        document.getElementById("error11").textContent = "英字が含まれています。";
+    }else{
+        document.getElementById("error11").innerText = "\n";
+    }
+});
+
+
 

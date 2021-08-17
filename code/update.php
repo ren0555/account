@@ -3,7 +3,7 @@
     <head>
         <title>アカウント更新画面</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style6.css">
         <script type="text/javascript">
             function check(){
                     if(form.name1.value == ""){
@@ -26,29 +26,24 @@
                     }
                     if(form.mail.value == ""){
                         return false;
+                        
                     }
-                    if(form.password.value == ""){
+                    if (form.yubin.value==""){
                         return false;
-                    }
-                    if(document.form.seibetu[0].checked || document.form.seibetu[1].checked){
-                    }else{
-                        return false;
-                    }
-                    if(form.yubin.value == ""){
-                        return false;
+                        
                     }
                     if(form.yubin.value.match(/[^0-9]+/)){
                        return false;
                     }
-                    if(form.prefecture.value=="選択してください"){
+                    if(form.prefecture.value == "選択してください"){
                         return false;
                     }
-                    if(form.sikutyouson.value == ""){
+                    if(form.address1.value == ""){
                         return false;
-                    }else if(form.sikutyouson.value.match(/^[a-zA-Z]*$/)){
+                    }else if(form.address1.value.match(/^[a-zA-Z]*$/)){
                              return false;
                              }
-                    if(form.banti.value == ""){
+                    if(form.address2.value == ""){
                         return false;
                     }else if(form.sikutyouson.value.match(/^[a-zA-Z]*$/)){
                              return false;
@@ -64,7 +59,9 @@
         <header>ナビゲーションバー</header>
         <main>
             <div class="a">アカウント更新画面</div>
+            
             <form method="post"  action="update_confirm.php" name="form" maxlength="10">
+                <input type="hidden" value="<?php echo$_POST['id'];?>" name="id">
                 <div class="contents">
                     <label>名前（姓）</label>
                     <input type="text" class="text" name="name1" value="<?php if(!empty($_POST['name1']))  {echo$_POST['name1'];}?>" maxlength="10">
@@ -97,8 +94,8 @@
             
                 <div class="contents">
                     <label>パスワード</label>
-                    <input type="password" class="text2" size="XXX" name="password" value="" maxlength="10">
-                    <div id ="error6">パスワードを再設定してください。</div>
+                    <div class="pass3"><button type="submit" formaction="password.php">パスワードを更新する</button></div>
+                    <div><br></div>
                 </div>
             
                 <div class="contents">
@@ -209,7 +206,7 @@
                 $b="";
                 if($_POST['authority']==="一般"){
                     $a="selected";
-                }else if($_POST['authority']==="管理人"){
+                }else if($_POST['authority'] = "管理人"){
                     $b="selected";
                 }
                 
@@ -228,9 +225,8 @@
                 <div class="kakunin">
                     <input type="submit" value="確認する" id="kakunin" class="bottun" onclick="return check()">
                 </div>
-                <input type="hidden" value="<?php echo$_POST['id'];?>" name="id">
+                
             </form>
-            
         </main>
         <footer>フッター</footer>
         <script src="script.js"></script>

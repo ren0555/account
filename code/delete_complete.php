@@ -7,7 +7,7 @@ date_default_timezone_set("Asia/Tokyo");
 $_POST['update_time']= date('Y/m/d H;i;s');
 $update_time = $_POST['update_time'];
 $pdo = new PDO("mysql:dbname=regist;host=localhost;","root","renta1216");
-$pdo -> exec("update spi set delete_flag='0' where id = $id");
+$pdo -> exec("update spi set delete_flag='1' where id = $id");
 $pdo -> exec("update spi set update_time='$update_time' where id = $id");
 
 

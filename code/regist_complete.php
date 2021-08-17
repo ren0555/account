@@ -9,7 +9,7 @@ if ($_POST['name1']==""){
     $_POST['password']= password_hash($_POST['password'],PASSWORD_DEFAULT);
     $_POST['registered_time']= date('Y/m/d H;i;s');
     $_POST['update_time']= date('Y/m/d H;i;s');
-    $_POST['delete_flag'] = 1;
+    $_POST['delete_flag'] = 0;
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     if ($_POST['kengen']=="一般"){

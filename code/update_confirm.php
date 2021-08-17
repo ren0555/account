@@ -98,7 +98,7 @@
                     <input type="hidden" value="<?php echo$_POST['name3'];?>" name="name3">
                     <input type="hidden" value="<?php echo$_POST['name4'];?>" name="name4">
                     <input type="hidden" value="<?php echo$_POST['mail'];?>" name="mail">
-                    <input type="hidden" value="<?php echo$_POST['password'];?>" name="password">
+                    
                     <input type="hidden" value="<?php echo$_POST['gender'];?>" name="gender">
                     <input type="hidden" value="<?php echo$_POST['yubin'];?>" name="yubin">
                     <input type="hidden" value="<?php echo$_POST['prefecture'];?>" name="prefecture">
@@ -115,7 +115,7 @@
                     <input type="hidden" value="<?php echo$_POST['name3'];?>" name="name3">
                     <input type="hidden" value="<?php echo$_POST['name4'];?>" name="name4">
                     <input type="hidden" value="<?php echo$_POST['mail'];?>" name="mail">
-                    <input type="hidden" value="<?php echo$_POST['password'];?>" name="password">
+                   
                     <input type="hidden" value="<?php echo$_POST['gender'];?>" name="gender">
                     <input type="hidden" value="<?php echo$_POST['yubin'];?>" name="yubin">
                     <input type="hidden" value="<?php echo$_POST['prefecture'];?>" name="prefecture">
