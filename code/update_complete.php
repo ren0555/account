@@ -11,7 +11,7 @@ $mail=$_POST['mail'];
 
 
 if ($_POST['name1']==""){
-                header("Location: error.php");
+                header("Location: error1.php");
             }
 if($_POST['gender']==="男"){
     $gender = "0";

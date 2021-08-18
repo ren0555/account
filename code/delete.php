@@ -1,3 +1,8 @@
+<?php
+if ($_POST['name1']==""){
+                header("Location: error1.php");
+}
+?>
 <!DOCTYPE>
 <html lang="ja">
     <head>
