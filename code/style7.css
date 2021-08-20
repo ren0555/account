@@ -1,0 +1,41 @@
+header{
+    text-align: center;
+    border: 1px solid;
+    padding: 15px;
+}
+footer{
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 0px;
+    padding: 15px;
+    border: 1px solid ;
+}
+main{
+    border-right: 1px solid;
+    border-left: 1px solid;
+    height: 80%;
+    width: 100%;
+}
+body{
+    height: 100%;
+}
+.form1{
+    margin: 0 auto;
+    width: 400px;
+}
+
+.left{
+    text-align: left;
+    width: 150px;
+    display: inline-block;
+}
+.right{
+    text-align: left;
+    width: 150px;
+    display: inline-block;
+}
+
+
+form{
+    text-align: center;
+}
