@@ -52,7 +52,7 @@ $pdo -> exec("update spi set update_time='$update_time' where id = $id");
         <main>
             <div class="abc">アカウント更新完了画面</div>
                 <div class="touroku">更新完了しました</div>
-                <button class="top" onclick="location.href='http://localhost/D.I.Blog/index.php'">TOPページへ戻る</button>
+                <button class="top" onclick="location.href='http://localhost/account/D.I.Blog/index.php'">TOPページへ戻る</button>
         </main>
     </body>
     <footer>フッター</footer>

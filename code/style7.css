@@ -21,21 +21,30 @@ body{
 }
 .form1{
     margin: 0 auto;
-    width: 400px;
+    width: 550px;
 }
 
 .left{
     text-align: left;
-    width: 150px;
+    width: 250px;
     display: inline-block;
 }
 .right{
     text-align: left;
-    width: 150px;
+    width: 250px;
     display: inline-block;
 }
 
 
 form{
     text-align: center;
+}
+#error1{
+    color: red;
+}
+#error2{
+    color: red;
+}
+.error{
+    color: red;
 }

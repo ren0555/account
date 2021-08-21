@@ -15,10 +15,11 @@ if(isset($_POST['login'])){
         
         while ($row = $stmt->fetch()){
             if(password_verify($password, $row['password']) && $mail== $row['mail']){
-                header('Location: http://localhost/D.I.Blog/index.php');
-                echo "<form method='post'>";
-                echo "<input type='hidden' value=" .$row['authority']. ">";
-                echo "</form>";
+                $authority= $row['authority'];
+                header('Location: http://localhost/D.I.Blog/index.php?hogeA='.$authority);
+                exit();
+            }else{
+                $errorMessage1="メールアドレスまたはパスワードが間違っています。";
             }
         }
         
@@ -50,6 +51,7 @@ if(isset($_POST['login'])){
     }
     */
  }
+$br="<br>"
 
 ?>
 
@@ -67,10 +69,7 @@ if(isset($_POST['login'])){
             <div>ログイン画面</div>
             
             <form action="" method="post">
-                <?php if ($errorMessage3 !==null && !$errorMessage3 ==""){
-                            echo $errorMessage3;}
-                        
-                ?>
+                
                 <div class="form1">
                     <div class="left">
                         <div>メールアドレス</div>
@@ -80,13 +79,28 @@ if(isset($_POST['login'])){
                     </div>
                     <div class="right">
                         <div><input class="mail" type="text" maxlength="100" name="mail"></div>
-                        <div id="error1"><br></div>
+                        <div id="error1"><?php
+                            if(isset($_POST['login'])){
+                                if($_POST['mail']==""){
+                                    echo "メールアドレスが未入力です";
+                                }
+                            }
+                            echo $br;
+                            ?></div>
                         <div><input 　class="password" type="password" maxlength="10" name="pass"></div>
-                        <div id="error2"><br></div>
+                        <div id="error2"><?php
+                            if(isset($_POST['login'])){
+                                if($_POST['pass']==""){
+                                    echo "パスワードが未入力です";
+                                }
+                            }
+                            echo $br;
+                            ?></div>
                     </div>
                  </div>
                     <br>
                 <div　class="login">
+                    <p class="error"><?php echo $errorMessage1; ?></p>
                     <input type="submit" value="ログイン" name="login" id="login"　class="login-button">
                 </div>
                 </form>
