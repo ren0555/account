@@ -5,21 +5,27 @@ date_default_timezone_set("Asia/Tokyo");
 if ($_POST['name1']==""){
     header("Location: error.php");
 }else{
-    $pdo = new PDO("mysql:dbname=regist;host=localhost;","root","renta1216");
-    $_POST['password']= password_hash($_POST['password'],PASSWORD_DEFAULT);
-    $_POST['registered_time']= date('Y/m/d H;i;s');
-    $_POST['update_time']= date('Y/m/d H;i;s');
-    $_POST['delete_flag'] = 0;
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    if ($_POST['kengen']=="一般"){
-        $kengen = 0;
-    }else{
-        $kengen = 1;
-    }
+    try{
+        $pdo = new PDO("mysql:dbname=regist;host=localhost;","root","renta1216");
+        $_POST['password']= password_hash($_POST['password'],PASSWORD_DEFAULT);
+        $_POST['registered_time']= date('Y/m/d H;i;s');
+        $_POST['update_time']= date('Y/m/d H;i;s');
+        $_POST['delete_flag'] = 0;
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        if ($_POST['kengen']=="一般"){
+            $kengen = 0;
+        }else{
+            $kengen = 1;
+        }
     
     
     $pdo ->exec("insert into spi(family_name,last_name,family_name_kana,last_name_kana,mail,password,gender,postal_code,prefecture,address_1,address_2,authority,delete_flag,registered_time,update_time)values('".$_POST['name1']."','".$_POST['name2']."','".$_POST['name3']."','".$_POST['name4']."','".$_POST['mail']."','".$_POST['password']."','".$_POST['seibetu']."','".$_POST['yubin']."','".$_POST['prefecture']."','".$_POST['sikutyouson']."','".$_POST['banti']."','".$kengen."','".$_POST['delete_flag']."','".$_POST['registered_time']."','".$_POST['update_time']."');");
+    }catch(PDOException $e){
+        echo "データベースの接続に失敗しました:";
+        echo $e->getMessage();
+        exit;
+    }
 }
 ?>
 

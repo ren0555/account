@@ -1,9 +1,12 @@
 <?php
 mb_internal_encoding("utf8");
+date_default_timezone_set("Asia/Tokyo");
 
 $id = $_POST['id'];
+$_POST['update_time']= date('Y/m/d H;i;s');
+$update_time = $_POST['update_time'];
 
-date_default_timezone_set("Asia/Tokyo");
+
     if ($_POST['id']==""){
                 header("Location: error.php");
 }else{      
@@ -12,6 +15,7 @@ date_default_timezone_set("Asia/Tokyo");
         $_POST['update_time']= date('Y/m/d H;i;s');
         $pass=$_POST['password'];
         $pdo ->exec("update spi set password='$pass' where id ='$id'");
+        $pdo -> exec("update spi set update_time='$update_time' where id = $id");
     }
 ?>
 

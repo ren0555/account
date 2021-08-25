@@ -1,12 +1,16 @@
 <?php
-    echo $_POST['authority'];
+    if(isset($_GET['hogeA'])){
+        $authority=$_GET['hogeA'];
+    }else{
+        $authority="";
+    }
 ?>
 
 <!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title>実習2</title>
+    <title>D.I.Blog</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
@@ -32,8 +36,15 @@
           <li>トップ</li>
           <li>プロフィール</li> 
           <li>D.I.Blogについて</li>
-          <a href="http://localhost/account/code/regist.php"><li>登録フォーム</li></a>
-            <a href="http://localhost/account/code/list.php"><li>アカウント一覧</li></a>
+          <?php
+            if($authority=="1"){
+            echo "<a href='http://localhost/account/code/regist.php'><li>登録フォーム</li></a>";
+                }
+            ?>
+            <?php
+            if($authority=="1")
+            echo '<a href="http://localhost/account/code/list.php"><li>アカウント一覧</li></a>';
+             ?>
           <li>問い合わせ</li>
           <li>その他</li>
         </ul>

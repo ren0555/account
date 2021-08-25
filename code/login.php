@@ -16,10 +16,14 @@ if(isset($_POST['login'])){
         while ($row = $stmt->fetch()){
             if(password_verify($password, $row['password']) && $mail== $row['mail']){
                 $authority= $row['authority'];
-                header('Location: http://localhost/D.I.Blog/index.php?hogeA='.$authority);
+                header('Location: http://localhost/account/D.I.Blog/index.php?hogeA='.$authority);
                 exit();
             }else{
+                if($_POST['mail']=="" || $_POST['pass']=="" ){
+                    $errorMessage1="";
+                }else{           
                 $errorMessage1="メールアドレスまたはパスワードが間違っています。";
+                }
             }
         }
         
@@ -78,7 +82,7 @@ $br="<br>"
                         <div><br></div>
                     </div>
                     <div class="right">
-                        <div><input class="mail" type="text" maxlength="100" name="mail"></div>
+                        <div><input class="mail" type="text" maxlength="100" name="mail" placeholder="同じメールアドレスは登録できません。"></div>
                         <div id="error1"><?php
                             if(isset($_POST['login'])){
                                 if($_POST['mail']==""){
