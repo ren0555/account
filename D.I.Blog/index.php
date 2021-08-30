@@ -1,12 +1,39 @@
 <?php
-    if(isset($_GET['hogeA'])){
-        $authority=$_GET['hogeA'];
-    }else{
-        $authority="";
-    }
+if(isset($_POST['mail'])){
+    echo "";
+}else{
+    $_POST['mail']="";
+}
+
+
+if(isset($authority)){
+    echo "";
+}else{
+    $authority="";
+}
+try{
+        $pdo = new PDO("mysql:dbname=regist;host=localhost;","root","renta1216");
+        $stmt = $pdo->query("select * from spi ");
+        
+        while ($row = $stmt->fetch()){
+            if($_POST['mail']==$row['mail']){
+                $authority=$row['authority'];
+            }
+        }
+
+if(isset($_POST['return'])){
+    $authority=$_POST['return'];
+}
+
+}catch(PDOException $e){
+        echo "データベースの接続に失敗しました:";
+        echo $e->getMessage();
+        exit;
+}
 ?>
 
 <!DOCTYPE html>
+
 <html lang="ja">
   <head>
     <meta charset="utf-8">
@@ -36,15 +63,21 @@
           <li>トップ</li>
           <li>プロフィール</li> 
           <li>D.I.Blogについて</li>
-          <?php
+            <form action="http://localhost/account/code/regist.php" method="post">
+                <input type="hidden" value="<?php echo $authority;?>" name="authority0">
+            <?php
             if($authority=="1"){
-            echo "<a href='http://localhost/account/code/regist.php'><li>登録フォーム</li></a>";
-                }
+            echo "<li><input type='submit' id='regist' value='登録フォーム' style='background-color:black;color:white;border:black;font-size:17px;'></li>";
+            }
             ?>
+            </form>
+            <form action="http://localhost/account/code/list.php" method="post">
+                <input type="hidden" value="<?php echo $authority;?>" name="authority0">
             <?php
             if($authority=="1")
-            echo '<a href="http://localhost/account/code/list.php"><li>アカウント一覧</li></a>';
+            echo "<li><input type='submit' id='regist' value='アカウント一覧' style='background-color:black;color:white;border:black;font-size:17px;'></li>";
              ?>
+            </form>
           <li>問い合わせ</li>
           <li>その他</li>
         </ul>
@@ -55,6 +88,9 @@
         <div class="left">
           <h1>プログラミングに役立つ書籍</h1>  
             2017年1月15日
+            
+            
+            
             <div class="slider">
                 <div><img src="jQuery_image1.jpg"></div>
                 <div><img src="jQuery_image2.jpg"></div>

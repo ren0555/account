@@ -43,7 +43,10 @@ if ($_POST['name1']==""){
         <main>
             <div class="abc">アカウント登録完了画面</div>
                 <div class="touroku">登録完了しました</div>
-                <button class="top" onclick="location.href='http://localhost/account/D.I.Blog/index.php'">TOPページへ戻る</button>
+                <form action="http://localhost/account/D.I.Blog/index.php" method="post">
+                    <input type="submit"  value="TOPページへ戻る" class="top">
+                    <input type="hidden" name="return" value="1">
+                </form>
         </main>
     </body>
     <footer>フッター</footer>

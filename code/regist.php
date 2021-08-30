@@ -1,3 +1,14 @@
+<?php
+if($_POST['authority0']==1){
+   echo ""; 
+}else{
+    header("Location: error2.php");
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -92,7 +103,7 @@
             
                 <div class="contents">
                     <label>メールアドレス</label>
-                    <input type="email" class="text1" size="XXX" name="mail" value="<?php if(!empty($_POST['mail'])){echo$_POST['mail'];}?>" maxlength="100">
+                    <input type="email" class="text1" size="XXX" name="mail" value="<?php if(!empty($_POST['mail'])){echo$_POST['mail'];}?>"  maxlength="100">
                     <div id ="error5"><br></div>
                 </div>
             
@@ -205,6 +216,8 @@
                 </div>
                 
                 <?php
+                
+               
                 
                 $a="";
                 $b="";

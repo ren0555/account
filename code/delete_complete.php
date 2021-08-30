@@ -12,6 +12,7 @@ $pdo -> exec("update spi set update_time='$update_time' where id = $id");
 
 
 
+
 ?>
 
 <!DOCTYPE>
@@ -27,7 +28,10 @@ $pdo -> exec("update spi set update_time='$update_time' where id = $id");
             <h3>アカウント削除完了画面</h3>
             <h1>削除完了しました。</h1>
             <div>
-                <input type="button" value="TOPページへ戻る" class="button" onclick="location.href='http://localhost/account/D.I.Blog/index.php">
+                <form action="http://localhost/account/D.I.Blog/index.php" method="post">
+                    <input type="submit"  value="TOPページへ戻る" class="button">
+                    <input type="hidden" name="return" value="1">
+                </form>
             </div>
         </main>
     </body>
