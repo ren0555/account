@@ -42,3 +42,8 @@ main .list{
 .table{
     margin-bottom: 50px;
 }
+.error{
+    text-align: center;
+    color: red;
+    font-size: 25px;
+}

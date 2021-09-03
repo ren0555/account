@@ -1,6 +1,6 @@
 <?php
 if ($_POST['name1']==""){
-                header("Location: error1.php");
+                header("Location: error2.php");
 }
 ?>
 

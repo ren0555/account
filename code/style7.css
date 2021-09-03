@@ -48,3 +48,13 @@ form{
 .error{
     color: red;
 }
+.logo{
+    padding-left: 70px;
+    font-size: 20px;
+    font-weight: 700;
+
+}
+#login{
+    background-color: white;
+    padding: 20px 75px;
+}

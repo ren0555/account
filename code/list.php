@@ -19,7 +19,11 @@ if($_POST['authority0']==1){
         mb_internal_encoding("utf8");
         $pdo = new PDO("mysql:dbname=regist;host=localhost;","root","renta1216");
         $stmt = $pdo ->query("select * from spi");
-        $stmt = $pdo ->query("select * from spi order by id desc")
+        $stmt = $pdo ->query("select * from spi order by id desc");
+            
+               
+            
+                            
         ?>
             <header>ナビゲーションバー</header>
             <main>
@@ -71,13 +75,7 @@ if($_POST['authority0']==1){
                     </tr>
                    
                     <?php
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                  
                      if($row['id']=""){
                         
                     }else{
@@ -85,6 +83,7 @@ if($_POST['authority0']==1){
                              
                             if(empty($_POST['name_1']) &&empty($_POST['name_2']) &&empty($_POST['name_3']) &&empty($_POST['name_4']) &&empty($_POST['mail']) && $_POST['authority']=="選択してください" &&empty($_POST['gender']) ){  
                                 //すべて空白の時に全リストを表示
+                                
                              
                                 foreach($stmt as $row){ 
 
@@ -158,6 +157,9 @@ if($_POST['authority0']==1){
                                 }  
                                 echo "</tr>";
                                 }
+                                if(!isset($swith)){
+                                    $swith="1";
+                                }
                                 }elseif(isset($_POST['search'])){ //ここから検索機能
                             
 
@@ -213,7 +215,7 @@ if($_POST['authority0']==1){
                                     }
                                     if($_POST['authority']=="選択してください"){
                                         $authority="";
-                                        $zyouken6=empty($authority);                                       
+                                        $zyouken6=empty($authority);                                        
                                     }elseif(!empty($_POST['authority'])){
                                         $zyouken6=strpos($kengen,$_POST['authority']) !==false;
                                     } 
@@ -227,7 +229,11 @@ if($_POST['authority0']==1){
                                     
                                       
                                     if($zyouken1 && $zyouken2 && $zyouken3 && $zyouken4 && $zyouken5&& $zyouken6 && $zyouken7){
-                                
+                                        
+                                         if(!isset($error)){
+                                             $error = "";
+                                         }
+
                                         echo"<tr>";
                                         echo"<td>".$row['id']."</td>";
                                         echo"<td>".$row['family_name']."</td>";
@@ -279,8 +285,13 @@ if($_POST['authority0']==1){
                                         echo"<td colspan='2'>操作不可</td>"; //削除フラグによる操作不可
                                 }  
                                 echo "</tr>";
-                                }
+                                }                                                                       
                             }
+                            }if(!isset($error)&&!isset($swith)){
+                                    
+                                    $error = "<div class='error'>条件に一致するアカウントは存在しませんでした。</div>";
+                                    echo $error;
+                                
                             }
                          }
                         }

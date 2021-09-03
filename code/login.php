@@ -69,7 +69,7 @@ $br="<br>"
     <header>ナビゲーションバー</header>
     <body>
         <main>
-            <div>ログイン画面</div>
+            <div class="logo">ログイン画面</div>
             
             <form action="" method="post">
                 
@@ -81,8 +81,8 @@ $br="<br>"
                         <div><br></div>
                     </div>
                     <div class="right">
-                        <div><input class="mail" type="text" maxlength="100" name="mail"></div>
-                        <div id="error1"><?php
+                        <div><input class="mail" type="text" maxlength="100" name="mail"value="<?php if(isset($_POST['mail'])){echo $_POST['mail'];}?>"></div>
+                        <div id="error1" ><?php
                             if(isset($_POST['login'])){
                                 if($_POST['mail']==""){
                                     echo "メールアドレスが未入力です";
@@ -102,9 +102,9 @@ $br="<br>"
                     </div>
                  </div>
                     <br>
-                <div　class="login">
-                    <p class="error"><?php echo $errorMessage1; ?></p>
-                    <input type="submit" value="ログイン" name="login" id="login"　class="login-button">
+                <div>
+                    <p class="error"><?php echo $errorMessage1; ?><br></p>
+                    <input  id="login" type="submit" value="ログイン" name="login">
                 </div>
                 </form>
             <script src="script2.js"></script>
