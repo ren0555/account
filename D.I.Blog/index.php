@@ -1,29 +1,17 @@
 <?php
-if(isset($_POST['mail'])){
-    echo "";
-}else{
-    $_POST['mail']="";
-}
 
-
-if(isset($authority)){
-    echo "";
-}else{
-    $authority="";
-}
+session_start();
 try{
         $pdo = new PDO("mysql:dbname=regist;host=localhost;","root","renta1216");
         $stmt = $pdo->query("select * from spi ");
+    
         
-        while ($row = $stmt->fetch()){
-            if($_POST['mail']==$row['mail']){
-                $authority=$row['authority'];
-            }
-        }
+        if ($_SESSION['login']==""){
+            header("Location: http://localhost/account/code/error2.php");
+        }    
+    
+       
 
-if(isset($_POST['return'])){
-    $authority=$_POST['return'];
-}
 
 }catch(PDOException $e){
         echo "データベースの接続に失敗しました:";
@@ -64,22 +52,23 @@ if(isset($_POST['return'])){
           <li>プロフィール</li> 
           <li>D.I.Blogについて</li>
             <form action="http://localhost/account/code/regist.php" method="post">
-                <input type="hidden" value="<?php echo $authority;?>" name="authority0">
+                <input type="hidden" value="<?php echo $_SESSION['login']?>" name="authority0">
             <?php
-            if($authority=="1"){
+            if($_SESSION['login']=="1"){
             echo "<li><input type='submit' id='regist' value='登録フォーム' style='background-color:black;color:white;border:black;font-size:17px;'></li>";
             }
             ?>
             </form>
             <form action="http://localhost/account/code/list.php" method="post">
-                <input type="hidden" value="<?php echo $authority;?>" name="authority0">
+                <input type="hidden" value="<?php echo $_SESSION['login'];?>" name="authority0">
             <?php
-            if($authority=="1")
+            if($_SESSION['login']=="1")
             echo "<li><input type='submit' id='regist' value='アカウント一覧' style='background-color:black;color:white;border:black;font-size:17px;'></li>";
              ?>
             </form>
-          <li>問い合わせ</li>
-          <li>その他</li>
+            <li>問い合わせ</li>
+            <li>その他</li>
+            <a href="http://localhost/account/code/login.php"><li>ログイン</li></a>
         </ul>
     </header>
     

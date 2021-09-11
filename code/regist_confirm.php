@@ -7,9 +7,14 @@
     </head>
     <body>
         <?php
-            if ($_POST['name1']==""){
-                header("Location: error.php");
-            }   
+        session_start();
+            if($_SESSION['login']==1){
+               echo ""; 
+            }else if($_SESSION['login']==0){
+                header("Location: error2.php");
+            }else{
+                header("Location: error4.php");
+            }
         ?>
         <header>ナビゲーションバー</header>
         
@@ -44,83 +49,61 @@
                 
                 <div class="confirm_right">
                     <div class="insert">
-                            <?php echo$_POST['name1'];?>
+                            <?php echo $_SESSION['regist_name1'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['name2'];?>
+                            <?php echo $_SESSION['regist_name2'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['name3'];?>
+                            <?php echo $_SESSION['regist_name3'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['name4'];?>
+                            <?php echo $_SESSION['regist_name4'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['mail'];?>
+                            <?php echo $_SESSION['regist_mail'];?>
                     </div>
 
                     <div class="insert">●●●●●●</div>
 
                     <div class="insert">
-                            <?php if($_POST['seibetu']=="0"){echo "男";}else if($_POST['seibetu']=="1"){echo "女";}?>
+                            <?php if($_SESSION['regist_gender']=="0"){echo "男";}else if($_SESSION['regist_gender']=="1"){echo "女";}?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['yubin'];?>
+                            <?php echo $_SESSION['regist_yubin'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['prefecture'];?>
+                            <?php echo $_SESSION['regist_prefecture'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['sikutyouson'];?>
+                            <?php echo $_SESSION['regist_address1'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['banti'];?>
+                            <?php echo $_SESSION['regist_address2'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['kengen'];?>
+                            <?php echo $_SESSION['regist_authority'];?>
                     </div>
                 </div>
             </div>
             <div class="buttons">
                 <form action="regist.php" class="button1" method="post">
                     <input type="submit" class="back" value="前に戻る">
-                    <input type="hidden" value="<?php echo$_POST['name1'];?>" name="name1">
-                    <input type="hidden" value="<?php echo$_POST['name2'];?>" name="name2">
-                    <input type="hidden" value="<?php echo$_POST['name3'];?>" name="name3">
-                    <input type="hidden" value="<?php echo$_POST['name4'];?>" name="name4">
-                    <input type="hidden" value="<?php echo$_POST['mail'];?>" name="mail">
-                    <input type="hidden" value="<?php echo$_POST['password'];?>" name="password">
-                    <input type="hidden" value="<?php echo$_POST['seibetu'];?>" name="seibetu">
-                    <input type="hidden" value="<?php echo$_POST['yubin'];?>" name="yubin">
-                    <input type="hidden" value="<?php echo$_POST['prefecture'];?>" name="prefecture">
-                    <input type="hidden" value="<?php echo$_POST['sikutyouson'];?>" name="sikutyouson">
-                    <input type="hidden" value="<?php echo$_POST['banti'];?>" name="banti">
-                    <input type="hidden" value="<?php echo$_POST['kengen'];?>" name="kengen">
+                    
                 </form>
                 
                 <form action="regist_complete.php" method="post" class="button2">
                     <input type="submit" value="登録する" class="touroku">
-                    <input type="hidden" value="<?php echo$_POST['name1'];?>" name="name1">
-                    <input type="hidden" value="<?php echo$_POST['name2'];?>" name="name2">
-                    <input type="hidden" value="<?php echo$_POST['name3'];?>" name="name3">
-                    <input type="hidden" value="<?php echo$_POST['name4'];?>" name="name4">
-                    <input type="hidden" value="<?php echo$_POST['mail'];?>" name="mail">
-                    <input type="hidden" value="<?php echo$_POST['password'];?>" name="password">
-                    <input type="hidden" value="<?php echo$_POST['seibetu'];?>" name="seibetu">
-                    <input type="hidden" value="<?php echo$_POST['yubin'];?>" name="yubin">
-                    <input type="hidden" value="<?php echo$_POST['prefecture'];?>" name="prefecture">
-                    <input type="hidden" value="<?php echo$_POST['sikutyouson'];?>" name="sikutyouson">
-                    <input type="hidden" value="<?php echo$_POST['banti'];?>" name="banti">
-                    <input type="hidden" value="<?php echo$_POST['kengen'];?>" name="kengen">
+                  
                 </form>
             </div>
         </main>

@@ -1,13 +1,15 @@
 <?php
+session_start();
 mb_internal_encoding("utf8");
 date_default_timezone_set("Asia/Tokyo");
 
-$id = $_POST['id'];
+$id = $_SESSION['id'];
 $_POST['update_time']= date('Y/m/d H;i;s');
 $update_time = $_POST['update_time'];
 
 
-    if ($_POST['id']==""){
+
+if ($_SESSION['login']==""){
                 header("Location: error.php");
 }else{      
         $pdo = new PDO("mysql:dbname=regist;host=localhost;","root","renta1216");
@@ -31,9 +33,12 @@ $update_time = $_POST['update_time'];
         <main>
             <h3>パスワード更新完了画面</h3>
             <h1>更新完了しました。</h1>
-            <div>
-                <input type="button" value="アカウント一覧へ戻る" class="button" onclick="location.href='http://localhost/account/code/list.php'">
-            </div>
+            <form  method="post" action="http://localhost/account/code/list.php">
+                <div>
+                    <input type="submit" value="アカウント一覧へ戻る" class="button">
+                    <input type="hidden" name="authority0" value="1">
+                </div>
+            </form>
         </main>
     </body>
     <footer>フッター</footer>

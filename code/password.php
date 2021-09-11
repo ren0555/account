@@ -1,9 +1,19 @@
 <?php
-if ($_POST['name1']==""){
-                header("Location: error.php");
+session_start();
+try{
+    if($_SESSION['login'] == "0"){
+        header("Location: error4.php");
+    }else if ($_SESSION['login']==""){
+                header("Location: error2.php");
+    }else if($_SESSION['name1']==""){
+        header("Location: error5.php");
+    }
+        
+}catch(PDOException $e){
+        echo "データベースの接続に失敗しました:";
+        echo $e->getMessage();
+        exit;
 }
-
-
 ?>
 
 
@@ -30,8 +40,6 @@ if ($_POST['name1']==""){
                     <label>新しいパスワード:</label>
                     <input type="password" name="password" maxlength="10" class="password">
                     <div id ="error6"><br></div>
-                    <input type="hidden" value="<?php echo$_POST['id'];?>" name="id">
-                    
                 </div>
                 <div class="pass2">
                       <input  class="update" type="submit" value="更新する" id="update" onclick="return check()">

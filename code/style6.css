@@ -80,17 +80,8 @@ body{
 }
 
 /*ラベルの方にも大きさを設定し、マージンでそろえることで右側のテキストが揃えられるはず*/
-.kakunin{
-    padding: 35px;
-}
-.bottun{
-    padding: 20px 75px;
-    background-color: white;
-    margin-top: -40px;
-}
-.bottun1{
-    float: right;
-}
+
+
 footer{
     text-align: center;
     margin-top: auto;
@@ -177,4 +168,24 @@ footer{
     margin-left: 43px;
     background-color: white;
     display: inline-block;
+}
+.buttons{
+    width: 100%;
+    text-align: center;
+}
+.bottun{
+    padding: 20px 75px;
+    background-color: white;
+    margin-top: -40px;
+    display: inline-block;
+}
+.bottun1{
+    background-color: white;
+    margin-top: -40px;
+    display: inline-block;
+    margin-left: 100px;
+}
+.back{
+    width: 40%;
+   
 }

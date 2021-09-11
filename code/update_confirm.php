@@ -1,6 +1,19 @@
 <?php
-if ($_POST['name1']==""){
-                header("Location: error1.php");
+session_start();
+try{
+    if($_SESSION['login'] == "0"){
+        header("Location: error4.php");
+    }else if ($_SESSION['login']==""){
+                header("Location: error2.php");
+    }else if($_SESSION['name1']==""){
+        header("Location: error5.php");
+    }
+
+        
+}catch(PDOException $e){
+        echo "データベースの接続に失敗しました:";
+        echo $e->getMessage();
+        exit;
 }
 ?>
 
@@ -12,11 +25,7 @@ if ($_POST['name1']==""){
         <link rel="stylesheet" href="style1.css">
     </head>
     <body>
-        <?php
-            if ($_POST['name1']==""){
-                header("Location: error.php");
-            }   
-        ?>
+        
         <header>ナビゲーションバー</header>
         
         <main>
@@ -50,85 +59,61 @@ if ($_POST['name1']==""){
                 
                 <div class="confirm_right">
                     <div class="insert">
-                            <?php echo$_POST['name1'];?>
+                            <?php echo $_SESSION['name1'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['name2'];?>
+                            <?php echo $_SESSION['name2'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['name3'];?>
+                            <?php echo $_SESSION['name3'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['name4'];?>
+                            <?php echo $_SESSION['name4'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['mail'];?>
+                            <?php echo $_SESSION['mail'];?>
                     </div>
 
                     <div class="insert">●●●●●●</div>
 
                     <div class="insert">
-                            <?php if($_POST['gender']=="0"){echo "男";}else if($_POST['gender']=="1"){echo "女";}?>
+                            <?php if($_SESSION['gender']=="0"){echo "男";}else if($_SESSION['gender']=="1"){echo "女";}?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['yubin'];?>
+                            <?php echo $_SESSION['yubin'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['prefecture'];?>
+                            <?php echo $_SESSION['prefecture'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['address1'];?>
+                            <?php echo $_SESSION['address1'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['address2'];?>
+                            <?php echo $_SESSION['address2'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo$_POST['authority'];?>
+                            <?php echo $_SESSION['authority'];?>
                     </div>
                 </div>
             </div>
             <div class="buttons">
                 <form action="update.php" class="button1" method="post">
                     <input type="submit" class="back" value="前に戻る">
-                    <input type="hidden" value="<?php echo$_POST['name1'];?>" name="name1">
-                    <input type="hidden" value="<?php echo$_POST['name2'];?>" name="name2">
-                    <input type="hidden" value="<?php echo$_POST['name3'];?>" name="name3">
-                    <input type="hidden" value="<?php echo$_POST['name4'];?>" name="name4">
-                    <input type="hidden" value="<?php echo$_POST['mail'];?>" name="mail">
                     
-                    <input type="hidden" value="<?php echo$_POST['gender'];?>" name="gender">
-                    <input type="hidden" value="<?php echo$_POST['yubin'];?>" name="yubin">
-                    <input type="hidden" value="<?php echo$_POST['prefecture'];?>" name="prefecture">
-                    <input type="hidden" value="<?php echo$_POST['address1'];?>" name="address1">
-                    <input type="hidden" value="<?php echo$_POST['address2'];?>" name="address2">
-                    <input type="hidden" value="<?php echo$_POST['authority'];?>" name="authority">
-                    <input type="hidden" value="<?php echo$_POST['id'];?>" name="id">
                 </form>
                 
                 <form action="update_complete.php" method="post" class="button2">
                     <input type="submit" value="更新する" class="touroku">
-                    <input type="hidden" value="<?php echo$_POST['name1'];?>" name="name1">
-                    <input type="hidden" value="<?php echo$_POST['name2'];?>" name="name2">
-                    <input type="hidden" value="<?php echo$_POST['name3'];?>" name="name3">
-                    <input type="hidden" value="<?php echo$_POST['name4'];?>" name="name4">
-                    <input type="hidden" value="<?php echo$_POST['mail'];?>" name="mail">
-                   
-                    <input type="hidden" value="<?php echo$_POST['gender'];?>" name="gender">
-                    <input type="hidden" value="<?php echo$_POST['yubin'];?>" name="yubin">
-                    <input type="hidden" value="<?php echo$_POST['prefecture'];?>" name="prefecture">
-                    <input type="hidden" value="<?php echo$_POST['address1'];?>" name="address1">
-                    <input type="hidden" value="<?php echo$_POST['address2'];?>" name="address2">
-                    <input type="hidden" value="<?php echo$_POST['authority'];?>" name="authority">
-                    <input type="hidden" value="<?php echo$_POST['id'];?>" name="id">
+                    
                 </form>
             </div>
         </main>

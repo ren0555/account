@@ -1,9 +1,13 @@
 <?php    
 mb_internal_encoding("utf8");
 
+session_start();
+
 $errorMessage1 = "";
 $errorMessage2 = "";
 $errorMessage3 = "";
+
+unset($_SESSION["login"]);
 
 if(isset($_POST['login'])){
      $mail = $_POST['mail'];
@@ -15,7 +19,10 @@ if(isset($_POST['login'])){
         
         while ($row = $stmt->fetch()){
             if(password_verify($password, $row['password']) && $mail== $row['mail']){
+                session_regenerate_id(TRUE);
+                $_SESSION["login"] = $row['authority'];
                 header('Location: http://localhost/account/D.I.Blog/index.php',true,307);
+                
                 exit();
             }else{
                 if($_POST['mail']=="" || $_POST['pass']=="" ){

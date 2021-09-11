@@ -1,7 +1,14 @@
 <?php
-if ($_POST['name1']==""){
-                header("Location: error1.php");
-}
+session_start();
+    if($_SESSION['login'] == "0"){
+        header("Location: error4.php");
+    }else if ($_SESSION['login']==""){
+                header("Location: error2.php");
+    }else if($_SESSION['name1']==""){
+        header("Location: error5.php");
+    }   
+
+try{
 $id = $_POST['id'];
 date_default_timezone_set("Asia/Tokyo");
 $_POST['update_time']= date('Y/m/d H;i;s');
@@ -9,7 +16,11 @@ $update_time = $_POST['update_time'];
 $pdo = new PDO("mysql:dbname=regist;host=localhost;","root","renta1216");
 $pdo -> exec("update spi set delete_flag='1' where id = $id");
 $pdo -> exec("update spi set update_time='$update_time' where id = $id");
-
+}catch(PDOException $e){
+        echo "データベースの接続に失敗しました:";
+        echo $e->getMessage();
+        exit;
+}
 
 
 
@@ -30,7 +41,6 @@ $pdo -> exec("update spi set update_time='$update_time' where id = $id");
             <div>
                 <form action="http://localhost/account/D.I.Blog/index.php" method="post">
                     <input type="submit"  value="TOPページへ戻る" class="button">
-                    <input type="hidden" name="return" value="1">
                 </form>
             </div>
         </main>

@@ -2,28 +2,32 @@
 mb_internal_encoding("utf8");
 
 date_default_timezone_set("Asia/Tokyo");
-if ($_POST['name1']==""){
-    header("Location: error.php");
-}else{
+session_start();
+if($_SESSION['login']==0){
+    header("Location: error2.php");
+}else if($_SESSION['login']==""){
+    header("Location: error4.php");
+}else if($_SESSION['login']==1){
     try{
         $pdo = new PDO("mysql:dbname=regist;host=localhost;","root","renta1216");
-        $_POST['password']= password_hash($_POST['password'],PASSWORD_DEFAULT);
+        $_SESSION['regist_password']= password_hash($_SESSION['regist_password'],PASSWORD_DEFAULT);
         $_POST['registered_time']= date('Y/m/d H;i;s');
         $_POST['update_time']= date('Y/m/d H;i;s');
         $_POST['delete_flag'] = 0;
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        if ($_POST['kengen']=="一般"){
+        if ($_SESSION['regist_authority']=="一般"){
             $kengen = 0;
         }else{
             $kengen = 1;
         }
     
     
-    $pdo ->exec("insert into spi(family_name,last_name,family_name_kana,last_name_kana,mail,password,gender,postal_code,prefecture,address_1,address_2,authority,delete_flag,registered_time,update_time)values('".$_POST['name1']."','".$_POST['name2']."','".$_POST['name3']."','".$_POST['name4']."','".$_POST['mail']."','".$_POST['password']."','".$_POST['seibetu']."','".$_POST['yubin']."','".$_POST['prefecture']."','".$_POST['sikutyouson']."','".$_POST['banti']."','".$kengen."','".$_POST['delete_flag']."','".$_POST['registered_time']."','".$_POST['update_time']."');");
+    $pdo ->exec("insert into spi(family_name,last_name,family_name_kana,last_name_kana,mail,password,gender,postal_code,prefecture,address_1,address_2,authority,delete_flag,registered_time,update_time)values('".$_SESSION['regist_name1']."','".$_SESSION['regist_name2']."','".$_SESSION['regist_name3']."','".$_SESSION['regist_name4']."','".$_SESSION['regist_mail']."','".$_SESSION['regist_password']."','".$_SESSION['regist_gender']."','".$_SESSION['regist_yubin']."','".$_SESSION['regist_prefecture']."','".$_SESSION['regist_address1']."','".$_SESSION['regist_address2']."','".$kengen."','".$_POST['delete_flag']."','".$_POST['registered_time']."','".$_POST['update_time']."');");
     }catch(PDOException $e){
         echo "データベースの接続に失敗しました:";
         echo $e->getMessage();
+        echo "<br>このメールアドレスは登録済みの可能性があります";
         exit;
     }
 }

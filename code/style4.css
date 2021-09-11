@@ -47,3 +47,11 @@ main .list{
     color: red;
     font-size: 25px;
 }
+.bottun{
+    text-align: center;
+    background-color: white;
+}
+.back{
+    text-align: center;
+    margin-top: 10px;
+}

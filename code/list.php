@@ -1,11 +1,28 @@
 <?php
-if($_POST['authority0']==1){
-   echo ""; 
-}else{
-    header("Location: error2.php");
+session_start();
+try{
+    if($_SESSION['login'] == "0"){
+        header("Location: error4.php");
+    }else if ($_SESSION['login']==""){
+                header("Location: error2.php");
+    }
+    unset($_SESSION['name1']);
+    unset($_SESSION['name2']);
+    unset($_SESSION['name3']);
+    unset($_SESSION['name4']);
+    unset($_SESSION['mail']);
+    unset($_SESSION['gender']);
+    unset($_SESSION['yubin']);
+    unset($_SESSION['password']);
+    unset($_SESSION['prefecture']);
+    unset($_SESSION['address1']);
+    unset($_SESSION['address2']);
+    unset($_SESSION['authority']);
+}catch(PDOException $e){
+    echo "データベースの接続に失敗しました:";
+    echo $e->getMessage();
+    exit;
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -21,7 +38,39 @@ if($_POST['authority0']==1){
         $stmt = $pdo ->query("select * from spi");
         $stmt = $pdo ->query("select * from spi order by id desc");
             
-               
+        if(isset($_POST['update'])){
+            $_SESSION['name1']=$_POST['name1'];
+            $_SESSION['name2']=$_POST['name2'];
+            $_SESSION['name3']=$_POST['name3'];
+            $_SESSION['name4']=$_POST['name4'];
+            $_SESSION['mail']=$_POST['mail'];
+            $_SESSION['gender']=$_POST['gender'];
+            $_SESSION['yubin']=$_POST['yubin'];
+            $_SESSION['password']=$_POST['password'];
+            $_SESSION['prefecture']=$_POST['prefecture'];
+            $_SESSION['address1']=$_POST['address1'];
+            $_SESSION['address2']=$_POST['address2'];
+            $_SESSION['authority']=$_POST['authority'];
+            $_SESSION['id']=$_POST['id'];
+            header("Location:http://localhost/account/code/update.php");
+        }
+        
+        if(isset($_POST['delete'])){
+            $_SESSION['name1']=$_POST['name1'];
+            $_SESSION['name2']=$_POST['name2'];
+            $_SESSION['name3']=$_POST['name3'];
+            $_SESSION['name4']=$_POST['name4'];
+            $_SESSION['mail']=$_POST['mail'];
+            $_SESSION['gender']=$_POST['gender'];
+            $_SESSION['yubin']=$_POST['yubin'];
+            $_SESSION['password']=$_POST['password'];
+            $_SESSION['prefecture']=$_POST['prefecture'];
+            $_SESSION['address1']=$_POST['address1'];
+            $_SESSION['address2']=$_POST['address2'];
+            $_SESSION['authority']=$_POST['authority'];
+            $_SESSION['id']=$_POST['id'];
+            header("Location:http://localhost/account/code/delete.php");
+        }
             
                             
         ?>
@@ -29,7 +78,6 @@ if($_POST['authority0']==1){
             <main>
                 <h3>アカウント一覧画面</h3>
                 <form method="post">
-                    <input type="hidden" value="<?php echo$_POST['authority0'];?>"name="authority0">
                 <table border="1" cellspacing="0" class="table">
                     <tr>
                         <td>名前（姓）</td>
@@ -47,7 +95,7 @@ if($_POST['authority0']==1){
                         <td>メールアドレス</td>
                         <td><input type="text" size="60%" name="mail" value="<?php if(isset($_POST['mail'])){echo $_POST['mail'];}?>"></td>
                         <td>性別</td>
-                        <td><label><input <?php if(isset($_POST['gender'])){if($_POST['gender']=="男"){echo "checked";}}?> name="gender" type="radio" value="男" >男</label>
+                        <td><label><input name="gender" type="radio" value="未選択" checked>未選択</label><label><input <?php if(isset($_POST['gender'])){if($_POST['gender']=="男"){echo "checked";}}?> name="gender" type="radio" value="男" >男</label>
                             <label><input <?php if(isset($_POST['gender'])){if($_POST['gender']=="女"){echo "checked";}}?>  name="gender" type="radio" value="女">女</label></td>
                     </tr>
                     <tr>
@@ -81,7 +129,7 @@ if($_POST['authority0']==1){
                     }else{
                          if(isset($_POST['search'])){
                              
-                            if(empty($_POST['name_1']) &&empty($_POST['name_2']) &&empty($_POST['name_3']) &&empty($_POST['name_4']) &&empty($_POST['mail']) && $_POST['authority']=="選択してください" &&empty($_POST['gender']) ){  
+                            if(empty($_POST['name_1']) &&empty($_POST['name_2']) &&empty($_POST['name_3']) &&empty($_POST['name_4']) &&empty($_POST['mail']) && $_POST['authority']=="選択してください" &&$_POST['gender']=="未選択" ){  
                                 //すべて空白の時に全リストを表示
                                 
                              
@@ -102,9 +150,7 @@ if($_POST['authority0']==1){
                                     }else{
                                         $delete = "無効";
                                     }//受け取った値を変換して表示する
-
-                        
-                            
+                                    
                                 echo"<tr>";
                                     echo"<td>".$row['id']."</td>";
                                     echo"<td>".$row['family_name']."</td>";
@@ -120,8 +166,8 @@ if($_POST['authority0']==1){
 
                                 if($delete == "有効"){
 
-                                    echo"<form action='update.php' method='post'>";
-                                    echo"<td><input type='submit' value='更新'></td>";
+                                    echo"<form method='post'>";
+                                    echo"<td><input type='submit' value='更新' name='update'></td>";
                                     echo"<input type='hidden' value=".$row['family_name']." name='name1'>";
                                     echo"<input type='hidden' value=".$row['last_name']." name='name2'>";        
                                     echo"<input type='hidden' value=".$row['family_name_kana']." name='name3'>";
@@ -137,10 +183,10 @@ if($_POST['authority0']==1){
                                     echo"<input type='hidden' value=".$row['id']." name='id'></form>";
 
 
-                                    echo"<form action='delete.php' method='post'>";
-                                    echo"<td><input type='submit' value='削除'></td>";
+                                    echo"<form method='post'>";
+                                    echo"<td><input type='submit' value='削除' name='delete'></td>";
                                     echo"<input type='hidden' value=".$row['family_name']." name='name1'>";
-                                    echo"<input type='hidden' value=".$row['last_name']." name='name2'>";   echo"<input type='hidden' value=".$_POST['authority0']." name='authority0'>";
+                                    echo"<input type='hidden' value=".$row['last_name']." name='name2'>";   
                                     echo"<input type='hidden' value=".$row['family_name_kana']." name='name3'>";
                                     echo"<input type='hidden' value=".$row['last_name_kana']." name='name4'>";
                                     echo"<input type='hidden' value=".$row['mail']." name='mail'>";
@@ -152,6 +198,7 @@ if($_POST['authority0']==1){
                                     echo"<input type='hidden' value=".$row['address_2']." name='address2'>";
                                     echo"<input type='hidden' value=".$kengen." name='authority'>";
                                     echo"<input type='hidden' value=".$row['id']." name='id'></form>";
+                                    
                                 }else if($delete = "無効"){
                                         echo"<td colspan='2'>操作不可</td>"; //削除フラグによる操作不可
                                 }  
@@ -219,10 +266,9 @@ if($_POST['authority0']==1){
                                     }elseif(!empty($_POST['authority'])){
                                         $zyouken6=strpos($kengen,$_POST['authority']) !==false;
                                     } 
-                                    if(empty($_POST['gender'])){
+                                    if($_POST['gender']=="未選択"){
                                         $_POST['gender']="";
-                                        $zyouken7=empty($_POST['gender']);
-                                        
+                                        $zyouken7=empty($_POST['gender']); 
                                     }elseif(!empty($_POST['gender'])){
                                         $zyouken7=strpos($seibetsu,$_POST['gender'])!==false;
                                     }
@@ -230,8 +276,8 @@ if($_POST['authority0']==1){
                                       
                                     if($zyouken1 && $zyouken2 && $zyouken3 && $zyouken4 && $zyouken5&& $zyouken6 && $zyouken7){
                                         
-                                         if(!isset($error)){
-                                             $error = "";
+                                        if(!isset($error)){
+                                             $error = ""; //エラー表示をなくすため
                                          }
 
                                         echo"<tr>";
@@ -249,8 +295,8 @@ if($_POST['authority0']==1){
 
                                 if($delete == "有効"){
 
-                                    echo"<form action='update.php' method='post'>";
-                                    echo"<td><input type='submit' value='更新'></td>";
+                                    echo"<form method='post'>";
+                                    echo"<td><input type='submit' value='更新' name='update'></td>";
                                     echo"<input type='hidden' value=".$row['family_name']." name='name1'>";
                                     echo"<input type='hidden' value=".$row['last_name']." name='name2'>";        
                                     echo"<input type='hidden' value=".$row['family_name_kana']." name='name3'>";
@@ -266,8 +312,8 @@ if($_POST['authority0']==1){
                                     echo"<input type='hidden' value=".$row['id']." name='id'></form>";
 
 
-                                    echo"<form action='delete.php' method='post'>";
-                                    echo"<td><input type='submit' value='削除'></td>";
+                                    echo"<form method='post'>";
+                                    echo"<td><input type='submit' value='削除' name='delete'></td>";
                                     echo"<input type='hidden' value=".$row['family_name']." name='name1'>";
                                     echo"<input type='hidden' value=".$row['last_name']." name='name2'>";        
                                     echo"<input type='hidden' value=".$row['family_name_kana']." name='name3'>";
@@ -298,6 +344,9 @@ if($_POST['authority0']==1){
                     ?>
                     
                 </table>
+                <div class="back">
+                        <input type="button"  value="TOPに戻る" class="bottun" onclick="location.href='http://localhost/account/D.I.Blog/index.php'">
+            </div>
             </main>
         <footer>フッター</footer>
     </body>

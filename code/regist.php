@@ -1,11 +1,64 @@
 <?php
-if($_POST['authority0']==1){
+session_start();
+try{
+if($_SESSION['login']==1){
    echo ""; 
-}else{
+}else if($_SESSION['login']==0){
     header("Location: error2.php");
+}else{
+    header("Location: error4.php");
+}
+}catch(PDOException $e){
+        echo "データベースの接続に失敗しました:";
+        echo $e->getMessage();
+        exit;
 }
 
+    unset($_SESSION['regist_name1']);
+    unset($_SESSION['regist_name2']);
+    unset($_SESSION['regist_name3']);
+    unset($_SESSION['regist_name4']);
+    unset($_SESSION['regist_mail']);
+    unset($_SESSION['regist_gender']);
+    unset($_SESSION['regist_yubin']);
+    unset($_SESSION['regist_password']);
+    unset($_SESSION['regist_prefecture']);
+    unset($_SESSION['regist_address1']);
+    unset($_SESSION['regist_address2']);
+    unset($_SESSION['regist_authority']);
 
+if(isset($_POST['regist'])){
+                     
+    $_SESSION['regist_name1']=$_POST['name1'];
+                    
+    $_SESSION['regist_name2']=$_POST['name2'];
+                        
+    $_SESSION['regist_name3']=$_POST['name3'];
+                       
+    $_SESSION['regist_name4']=$_POST['name4'];
+                       
+    $_SESSION['regist_mail']=$_POST['mail'];
+                       
+    $_SESSION['regist_gender']=$_POST['seibetu'];
+                       
+    $_SESSION['regist_yubin']=$_POST['yubin'];
+                       
+    $_SESSION['regist_password']=$_POST['password'];
+                       
+    $_SESSION['regist_prefecture']=$_POST['prefecture'];
+                        
+    $_SESSION['regist_address1']=$_POST['address1'];
+                       
+    $_SESSION['regist_address2']=$_POST['address2'];
+                        
+    $_SESSION['regist_authority']=$_POST['authority'];
+                    
+
+
+    if(isset($_POST['name1']) && isset($_POST['name2'])&& isset($_POST['name3'])&& isset($_POST['name4']) && isset($_POST['mail']) && isset($_POST['seibetu']) && isset($_POST['yubin']) && isset($_POST['password']) && isset($_POST['prefecture']) && isset($_POST['address1']) && isset($_POST['address2']) && isset($_POST['authority'])){
+    header("Location:http://localhost/account/code/regist_confirm.php");
+}
+}
 ?>
 
 
@@ -17,6 +70,7 @@ if($_POST['authority0']==1){
         <link rel="stylesheet" href="style.css">
         <script type="text/javascript">
             function check(){
+                
                     if(form.name1.value == ""){
                           return false;
                     }
@@ -76,53 +130,53 @@ if($_POST['authority0']==1){
         <header>ナビゲーションバー</header>
         <main>
             <div class="a">アカウント登録画面</div>
-            <form method="post"  action="regist_confirm.php" name="form" maxlength="10">
+            <form method="post"  action="" name="form" maxlength="10">
                 <div class="contents">
                     <label>名前（姓）</label>
-                    <input type="text" class="text" name="name1" value="<?php if(!empty($_POST['name1']))  {echo$_POST['name1'];}?>" maxlength="10">
+                    <input type="text" class="text" name="name1" value="<?php if(!empty($_SESSION['regist_name1']))  {echo$_SESSION['regist_name1'];}?>" maxlength="10">
                     <div id ="error1"><br></div>
                 </div>
             
                 <div class="contents">
                     <label>名前（名）</label>
-                    <input type="text" class="text" name="name2" value="<?php if(!empty($_POST['name2'])){echo$_POST['name2'];}?>" maxlength="10">
+                    <input type="text" class="text" name="name2" value="<?php if(!empty($_SESSION['regist_name2'])){echo $_SESSION['regist_name2'];}?>" maxlength="10">
                     <div id ="error2"><br></div>
                 </div>
             
                 <div class="contents">
                     <label>カナ（姓）</label>
-                    <input type="text" placeholder="カタカナのみ可" class="text" name="name3"value="<?php if(!empty($_POST['name3'])){echo$_POST['name3'];}?>" maxlength="10">
+                    <input type="text" placeholder="カタカナのみ可" class="text" name="name3"value="<?php if(!empty($_SESSION['regist_name3'])){echo $_SESSION['regist_name3'];}?>" maxlength="10">
                     <div id ="error3"><br></div>
                 </div> 
                 
                 <div class="contents">
                     <label>カナ（名）</label>
-                    <input type="text" placeholder="カタカナのみ可" class="text" name="name4" value="<?php if(!empty($_POST['name4'])){echo$_POST['name4'];}?>" maxlength="10">
+                    <input type="text" placeholder="カタカナのみ可" class="text" name="name4" value="<?php if(!empty($_SESSION['regist_name4'])){echo $_SESSION['regist_name4'];}?>" maxlength="10">
                     <div id ="error4"><br></div>
                 </div>
             
                 <div class="contents">
                     <label>メールアドレス</label>
-                    <input type="email" class="text1" size="XXX" name="mail" value="<?php if(!empty($_POST['mail'])){echo$_POST['mail'];}?>"  maxlength="100">
+                    <input type="email" class="text1" size="XXX" name="mail" value="<?php if(!empty($_SESSION['regist_mail'])){echo $_SESSION['regist_mail'];}?>"  maxlength="100">
                     <div id ="error5"><br></div>
                 </div>
             
                 <div class="contents">
                     <label>パスワード</label>
-                    <input type="password" class="text2" size="XXX" name="password" value="<?php if(!empty($_POST['password'])){echo$_POST['password'];}?>" maxlength="10">
+                    <input type="password" class="text2" size="XXX" name="password" value="<?php if(!empty($_SESSION['regist_password'])){echo $_SESSION['regist_password'];}?>" maxlength="10">
                     <div id ="error6"><br></div>
                 </div>
             
                 <div class="contents">
                     <label>性別</label>
                     <input type="radio"  name="seibetu" class="radio" value="0" checked <?php if(filter_input(INPUT_POST,'seibetu') === "0"){echo 'checked';}?>>男
-                    <input type="radio"  name="seibetu" class="radio" value="1" <?php if(!empty($_POST['seibetu']) && $_POST['seibetu']==="1"){echo 'checked';}?>>女
+                    <input type="radio"  name="seibetu" class="radio" value="1" <?php if(!empty($_SESSION['regist_gender']) && $_SESSION['regist_gender']==="1"){echo 'checked';}?>>女
                     <div id ="error7"><br></div>
                 </div>
             
                 <div class="contents">
                     <label>郵便番号</label>
-                    <input type="tel" class="yubin" size="10" name="yubin" placeholder="半角数字のみ可" value="<?php if(!empty($_POST['yubin'])){echo$_POST['yubin'];}?>" maxlength="7"　>
+                    <input type="tel" class="yubin" size="10" name="yubin" placeholder="半角数字のみ可" value="<?php if(!empty($_SESSION['regist_yubin'])){echo $_SESSION['regist_yubin'];}?>" maxlength="7"　>
                     <div id ="error8"><br></div>
                 </div>
             
@@ -181,8 +235,8 @@ if($_POST['authority0']==1){
                          "沖縄県",
                      );
                     
-                    if (isset($_POST['prefecture'])){
-                        $prefecture=$_POST['prefecture'];
+                    if (isset($_SESSION['regist_prefecture'])){
+                        $prefecture=$_SESSION['regist_prefecture'];
                     }
                     ?>
                 </div>   
@@ -205,13 +259,13 @@ if($_POST['authority0']==1){
             
                 <div class="contents">
                     <label>住所(市区町村)</label>
-                    <input type="text"class="text3" name="sikutyouson" value="<?php if(!empty($_POST['sikutyouson'])){echo$_POST['sikutyouson'];}?>" maxlength="10">
+                    <input type="text"class="text3" name="address1" value="<?php if(!empty($_SESSION['regist_address1'])){echo $_SESSION['regist_address1'];}?>" maxlength="10">
                     <div id ="error10"><br></div>
                 </div>
                 
                 <div class="contents">
                     <label>住所(番地)</label>
-                    <input type="text"class="text4" name="banti" value="<?php if(!empty($_POST['banti'])){echo$_POST['banti'];}?>" maxlength="100">
+                    <input type="text"class="text4" name="address2" value="<?php if(!empty($_SESSION['regist_address2'])){echo $_SESSION['regist_address2'];}?>" maxlength="100">
                     <div id ="error11"><br></div>
                 </div>
                 
@@ -222,21 +276,21 @@ if($_POST['authority0']==1){
                 $a="";
                 $b="";
                 
-                if(!empty($_POST['kengen'])){
-                    $kengen= $_POST['kengen'];
+                if(!empty($_SESSION['regist_authority'])){
+                    $authority= $_SESSION['regist_authority'];
                 }else{
-                    $kengen="";
+                    $authority="";
                 }
                 
-                if($kengen==="一般"){
+                if($authority==="一般"){
                     $a="selected";
-                }else if($kengen==="管理人"){
+                }else if($authority==="管理人"){
                     $b="selected";
                 }
                ?>
                 <div class="contents">
                     <label>アカウント権限</label>
-                    <select name="kengen" class="authority">
+                    <select name="authority" class="authority">
                         <option <?php echo $a ?> >一般</option>
                         <option <?php echo $b ?> >管理人</option>
                     </select>
@@ -247,7 +301,7 @@ if($_POST['authority0']==1){
                 </div>
             
                 <div class="kakunin">
-                    <input type="submit" value="確認する" id="kakunin" class="bottun" onclick="return check()">
+                    <input type="submit" value="確認する" id="kakunin" name="regist" class="bottun" onclick="return check()">
                 </div>
             </form>
             
