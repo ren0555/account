@@ -3,10 +3,12 @@ session_start();
 try{
 if($_SESSION['login']==1){
    echo ""; 
-}else if($_SESSION['login']==0){
+}else if($_SESSION['login']==""){
     header("Location: error2.php");
-}else{
+}else if($_SESSION['login']==0){
     header("Location: error4.php");
+}else{
+    
 }
 }catch(PDOException $e){
         echo "データベースの接続に失敗しました:";
@@ -14,18 +16,7 @@ if($_SESSION['login']==1){
         exit;
 }
 
-    unset($_SESSION['regist_name1']);
-    unset($_SESSION['regist_name2']);
-    unset($_SESSION['regist_name3']);
-    unset($_SESSION['regist_name4']);
-    unset($_SESSION['regist_mail']);
-    unset($_SESSION['regist_gender']);
-    unset($_SESSION['regist_yubin']);
-    unset($_SESSION['regist_password']);
-    unset($_SESSION['regist_prefecture']);
-    unset($_SESSION['regist_address1']);
-    unset($_SESSION['regist_address2']);
-    unset($_SESSION['regist_authority']);
+    
 
 if(isset($_POST['regist'])){
                      
@@ -130,6 +121,7 @@ if(isset($_POST['regist'])){
         <header>ナビゲーションバー</header>
         <main>
             <div class="a">アカウント登録画面</div>
+            <input type="button"  value="TOPに戻る" class="b" onclick="location.href='http://localhost/account/D.I.Blog/index.php'">
             <form method="post"  action="" name="form" maxlength="10">
                 <div class="contents">
                     <label>名前（姓）</label>
@@ -294,10 +286,6 @@ if(isset($_POST['regist'])){
                         <option <?php echo $a ?> >一般</option>
                         <option <?php echo $b ?> >管理人</option>
                     </select>
-                    <div id ="error12"><br></div>
-                    
-                   
-                    <div id ="error12"><br></div>
                 </div>
             
                 <div class="kakunin">

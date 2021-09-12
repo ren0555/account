@@ -8,12 +8,12 @@
     <body>
         <?php
         session_start();
-            if($_SESSION['login']==1){
-               echo ""; 
-            }else if($_SESSION['login']==0){
+            if($_SESSION['login']==""){
                 header("Location: error2.php");
-            }else{
+            }else if($_SESSION['login']==0){
                 header("Location: error4.php");
+            }else if(empty($_SESSION['regist_name1'])){
+                header("Location: error1.php");
             }
         ?>
         <header>ナビゲーションバー</header>

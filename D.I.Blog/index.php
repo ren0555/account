@@ -68,7 +68,7 @@ try{
             </form>
             <li>問い合わせ</li>
             <li>その他</li>
-            <a href="http://localhost/account/code/login.php"><li>ログイン</li></a>
+            <a href="http://localhost/account/code/login.php"><li >ログイン</li></a>
         </ul>
     </header>
     

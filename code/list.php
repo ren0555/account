@@ -1,10 +1,10 @@
 <?php
 session_start();
 try{
-    if($_SESSION['login'] == "0"){
-        header("Location: error4.php");
-    }else if ($_SESSION['login']==""){
+    if ($_SESSION['login']==""){
                 header("Location: error2.php");
+    }else if($_SESSION['login'] == "0"){
+        header("Location: error4.php");
     }
     unset($_SESSION['name1']);
     unset($_SESSION['name2']);

@@ -3,10 +3,12 @@ mb_internal_encoding("utf8");
 
 date_default_timezone_set("Asia/Tokyo");
 session_start();
-if($_SESSION['login']==0){
+if($_SESSION['login']==""){
     header("Location: error2.php");
-}else if($_SESSION['login']==""){
+}else if($_SESSION['login']==0){
     header("Location: error4.php");
+}else if($_SESSION['regist_name1']==""){
+    header("Location: error1.php");
 }else if($_SESSION['login']==1){
     try{
         $pdo = new PDO("mysql:dbname=regist;host=localhost;","root","renta1216");
@@ -24,10 +26,24 @@ if($_SESSION['login']==0){
     
     
     $pdo ->exec("insert into spi(family_name,last_name,family_name_kana,last_name_kana,mail,password,gender,postal_code,prefecture,address_1,address_2,authority,delete_flag,registered_time,update_time)values('".$_SESSION['regist_name1']."','".$_SESSION['regist_name2']."','".$_SESSION['regist_name3']."','".$_SESSION['regist_name4']."','".$_SESSION['regist_mail']."','".$_SESSION['regist_password']."','".$_SESSION['regist_gender']."','".$_SESSION['regist_yubin']."','".$_SESSION['regist_prefecture']."','".$_SESSION['regist_address1']."','".$_SESSION['regist_address2']."','".$kengen."','".$_POST['delete_flag']."','".$_POST['registered_time']."','".$_POST['update_time']."');");
+    unset($_SESSION['regist_name1']);
+    unset($_SESSION['regist_name2']);
+    unset($_SESSION['regist_name3']);
+    unset($_SESSION['regist_name4']);
+    unset($_SESSION['regist_mail']);
+    unset($_SESSION['regist_gender']);
+    unset($_SESSION['regist_yubin']);
+    unset($_SESSION['regist_password']);
+    unset($_SESSION['regist_prefecture']);
+    unset($_SESSION['regist_address1']);
+    unset($_SESSION['regist_address2']);
+    unset($_SESSION['regist_authority']);
     }catch(PDOException $e){
         echo "データベースの接続に失敗しました:";
         echo $e->getMessage();
-        echo "<br>このメールアドレスは登録済みの可能性があります";
+        echo "<br>このメールアドレスは登録済みの可能性があります<br>アカウント登録画面に戻る:";
+        unset($_SESSION['regist_password']);
+        echo "<a href='http://localhost/account/code/regist.php'>http://localhost/account/code/regist.php</a>";
         exit;
     }
 }

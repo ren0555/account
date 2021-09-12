@@ -9,7 +9,7 @@
     <body>
         <main>
             <div class="hyouzi">エラーが発生したためアカウント登録できません。</div>
-                <input class="top" value="アカウント一覧へ戻る" type="button" onclick="location.href='http://localhost/account/code/list.php'">
+                <input class="top" value="アカウント一覧へ戻る" type="button" onclick="location.href='http://localhost/account/D.I.Blog/index.php'">
         </main>
     </body>
     <footer>フッター</footer>

@@ -9,16 +9,19 @@ $update_time = $_POST['update_time'];
 
 
 
-if ($_SESSION['login']==""){
-                header("Location: error.php");
-}else{      
-        $pdo = new PDO("mysql:dbname=regist;host=localhost;","root","renta1216");
-        $_POST['password']= password_hash($_POST['password'],PASSWORD_DEFAULT);      
-        $_POST['update_time']= date('Y/m/d H;i;s');
-        $pass=$_POST['password'];
-        $pdo ->exec("update spi set password='$pass' where id ='$id'");
-        $pdo -> exec("update spi set update_time='$update_time' where id = $id");
+if($_SESSION['login'] == "0"){
+        header("Location: error4.php");
+    }else if ($_SESSION['login']==""){
+                header("Location: error2.php");
+    }else if($_SESSION['name1']==""){
+        header("Location: error5.php");
     }
+$pdo = new PDO("mysql:dbname=regist;host=localhost;","root","renta1216");
+$_POST['password']= password_hash($_POST['password'],PASSWORD_DEFAULT);      
+$_POST['update_time']= date('Y/m/d H;i;s');
+$pass=$_POST['password'];
+$pdo ->exec("update spi set password='$pass' where id ='$id'");
+$pdo -> exec("update spi set update_time='$update_time' where id = $id");
 ?>
 
 <!DOCTYPE>
