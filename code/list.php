@@ -6,18 +6,33 @@ try{
     }else if($_SESSION['login'] == "0"){
         header("Location: error4.php");
     }
-    unset($_SESSION['name1']);
-    unset($_SESSION['name2']);
-    unset($_SESSION['name3']);
-    unset($_SESSION['name4']);
-    unset($_SESSION['mail']);
-    unset($_SESSION['gender']);
-    unset($_SESSION['yubin']);
-    unset($_SESSION['password']);
-    unset($_SESSION['prefecture']);
-    unset($_SESSION['address1']);
-    unset($_SESSION['address2']);
-    unset($_SESSION['authority']);
+    unset($_SESSION['update_name1']);
+    unset($_SESSION['update_name2']);
+    unset($_SESSION['update_name3']);
+    unset($_SESSION['update_name4']);
+    unset($_SESSION['update_mail']);
+    unset($_SESSION['update_gender']);
+    unset($_SESSION['update_yubin']);
+    unset($_SESSION['update_password']);
+    unset($_SESSION['update_prefecture']);
+    unset($_SESSION['update_address1']);
+    unset($_SESSION['update_address2']);
+    unset($_SESSION['update_authority']);
+    unset($_SESSION['update_id']);
+    unset($_SESSION['delete_name1']);
+    unset($_SESSION['delete_name2']);
+    unset($_SESSION['delete_name3']);
+    unset($_SESSION['delete_name4']);
+    unset($_SESSION['delete_mail']);
+    unset($_SESSION['delete_gender']);
+    unset($_SESSION['delete_yubin']);
+    unset($_SESSION['delete_password']);
+    unset($_SESSION['delete_prefecture']);
+    unset($_SESSION['delete_address1']);
+    unset($_SESSION['delete_address2']);
+    unset($_SESSION['delete_authority']);
+    unset($_SESSION['delete_id']);
+    unset($_SESSION['pass0']);
 }catch(PDOException $e){
     echo "データベースの接続に失敗しました:";
     echo $e->getMessage();
@@ -39,36 +54,36 @@ try{
         $stmt = $pdo ->query("select * from spi order by id desc");
             
         if(isset($_POST['update'])){
-            $_SESSION['name1']=$_POST['name1'];
-            $_SESSION['name2']=$_POST['name2'];
-            $_SESSION['name3']=$_POST['name3'];
-            $_SESSION['name4']=$_POST['name4'];
-            $_SESSION['mail']=$_POST['mail'];
-            $_SESSION['gender']=$_POST['gender'];
-            $_SESSION['yubin']=$_POST['yubin'];
-            $_SESSION['password']=$_POST['password'];
-            $_SESSION['prefecture']=$_POST['prefecture'];
-            $_SESSION['address1']=$_POST['address1'];
-            $_SESSION['address2']=$_POST['address2'];
-            $_SESSION['authority']=$_POST['authority'];
-            $_SESSION['id']=$_POST['id'];
+            $_SESSION['update_name1']=$_POST['name1'];
+            $_SESSION['update_name2']=$_POST['name2'];
+            $_SESSION['update_name3']=$_POST['name3'];
+            $_SESSION['update_name4']=$_POST['name4'];
+            $_SESSION['update_mail']=$_POST['mail'];
+            $_SESSION['update_gender']=$_POST['gender'];
+            $_SESSION['update_yubin']=$_POST['yubin'];
+            $_SESSION['update_password']=$_POST['password'];
+            $_SESSION['update_prefecture']=$_POST['prefecture'];
+            $_SESSION['update_address1']=$_POST['address1'];
+            $_SESSION['update_address2']=$_POST['address2'];
+            $_SESSION['update_authority']=$_POST['authority'];
+            $_SESSION['update_id']=$_POST['id'];
             header("Location:http://localhost/account/code/update.php");
         }
         
         if(isset($_POST['delete'])){
-            $_SESSION['name1']=$_POST['name1'];
-            $_SESSION['name2']=$_POST['name2'];
-            $_SESSION['name3']=$_POST['name3'];
-            $_SESSION['name4']=$_POST['name4'];
-            $_SESSION['mail']=$_POST['mail'];
-            $_SESSION['gender']=$_POST['gender'];
-            $_SESSION['yubin']=$_POST['yubin'];
-            $_SESSION['password']=$_POST['password'];
-            $_SESSION['prefecture']=$_POST['prefecture'];
-            $_SESSION['address1']=$_POST['address1'];
-            $_SESSION['address2']=$_POST['address2'];
-            $_SESSION['authority']=$_POST['authority'];
-            $_SESSION['id']=$_POST['id'];
+            $_SESSION['delete_name1']=$_POST['name1'];
+            $_SESSION['delete_name2']=$_POST['name2'];
+            $_SESSION['delete_name3']=$_POST['name3'];
+            $_SESSION['delete_name4']=$_POST['name4'];
+            $_SESSION['delete_mail']=$_POST['mail'];
+            $_SESSION['delete_gender']=$_POST['gender'];
+            $_SESSION['delete_yubin']=$_POST['yubin'];
+            $_SESSION['delete_password']=$_POST['password'];
+            $_SESSION['delete_prefecture']=$_POST['prefecture'];
+            $_SESSION['delete_address1']=$_POST['address1'];
+            $_SESSION['delete_address2']=$_POST['address2'];
+            $_SESSION['delete_authority']=$_POST['authority'];
+            $_SESSION['delete_id']=$_POST['id'];
             header("Location:http://localhost/account/code/delete.php");
         }
             

@@ -19,11 +19,15 @@ if(isset($_POST['login'])){
         
         while ($row = $stmt->fetch()){
             if(password_verify($password, $row['password']) && $mail== $row['mail']){
-                session_regenerate_id(TRUE);
-                $_SESSION["login"] = $row['authority'];
-                header('Location: http://localhost/account/D.I.Blog/index.php',true,307);
-                
-                exit();
+                if($row['delete_flag']==0){
+                    session_regenerate_id(TRUE);
+                    $_SESSION["login"] = $row['authority'];
+                    header('Location: http://localhost/account/D.I.Blog/index.php',true,307);
+
+                    exit();
+                }else if($row['delete_flag']==1){
+                    $errorMessage1="存在しないアカウントです。";
+                }
             }else{
                 if($_POST['mail']=="" || $_POST['pass']=="" ){
                     $errorMessage1="";

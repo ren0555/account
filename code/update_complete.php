@@ -10,10 +10,10 @@ if($_SESSION['login'] == "0"){
         header("Location: error4.php");
     }else if ($_SESSION['login']==""){
                 header("Location: error2.php");
-    }else if($_SESSION['name1']==""){
+    }else if($_SESSION['update_name1']==""){
         header("Location: error5.php");
     }
-if($_SESSION['gender']==="男"){
+if($_SESSION['update_gender']==="男"){
     $gender = "0";
 }else{
     $gender = "1";
@@ -21,7 +21,7 @@ if($_SESSION['gender']==="男"){
 
 
 
-if($_SESSION['authority']==="一般"){
+if($_SESSION['update_authority']==="一般"){
     $authority="0";
 }else{
     $authority="1";
@@ -30,8 +30,8 @@ if($_SESSION['authority']==="一般"){
 $update_time = $_POST['update_time'];
 
 $pdo = new PDO("mysql:dbname=regist;host=localhost;","root","renta1216");
-$pdo -> exec("update spi set family_name='".$_SESSION['name1']."', last_name='".$_SESSION['name2']."',family_name_kana='".$_SESSION['name3']."',last_name_kana='".$_SESSION['name4']."', mail='".$_SESSION['mail']."',gender='$gender',postal_code='".$_SESSION['yubin']."',prefecture='".$_SESSION['prefecture']."',address_1='".$_SESSION['address1']."',address_2='".$_SESSION['address2']."',authority='$authority' where id = '".$_SESSION['id']."'");
-$pdo -> exec("update spi set update_time='$update_time' where id = '".$_SESSION['id']."'");
+$pdo -> exec("update spi set family_name='".$_SESSION['update_name1']."', last_name='".$_SESSION['update_name2']."',family_name_kana='".$_SESSION['update_name3']."',last_name_kana='".$_SESSION['update_name4']."', mail='".$_SESSION['update_mail']."',gender='$gender',postal_code='".$_SESSION['update_yubin']."',prefecture='".$_SESSION['update_prefecture']."',address_1='".$_SESSION['update_address1']."',address_2='".$_SESSION['update_address2']."',authority='$authority' where id = '".$_SESSION['update_id']."'");
+$pdo -> exec("update spi set update_time='$update_time' where id = '".$_SESSION['update_id']."'");
 }catch(PDOException $e){
     echo "データベースの接続に失敗しました:";
     echo $e->getMessage();

@@ -5,7 +5,7 @@ try{
         header("Location: error4.php");
     }else if ($_SESSION['login']==""){
                 header("Location: error2.php");
-    }else if($_SESSION['name1']==""){
+    }else if($_SESSION['update_name1']==""){
         header("Location: error5.php");
     }
 
@@ -59,49 +59,49 @@ try{
                 
                 <div class="confirm_right">
                     <div class="insert">
-                            <?php echo $_SESSION['name1'];?>
+                            <?php echo $_SESSION['update_name1'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo $_SESSION['name2'];?>
+                            <?php echo $_SESSION['update_name2'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo $_SESSION['name3'];?>
+                            <?php echo $_SESSION['update_name3'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo $_SESSION['name4'];?>
+                            <?php echo $_SESSION['update_name4'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo $_SESSION['mail'];?>
+                            <?php echo $_SESSION['update_mail'];?>
                     </div>
 
                     <div class="insert">●●●●●●</div>
 
                     <div class="insert">
-                            <?php if($_SESSION['gender']=="0"){echo "男";}else if($_SESSION['gender']=="1"){echo "女";}?>
+                            <?php if($_SESSION['update_gender']=="0"){echo "男";}else if($_SESSION['update_gender']=="1"){echo "女";}?>
                     </div>
 
                     <div class="insert">
-                            <?php echo $_SESSION['yubin'];?>
+                            <?php echo $_SESSION['update_yubin'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo $_SESSION['prefecture'];?>
+                            <?php echo $_SESSION['update_prefecture'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo $_SESSION['address1'];?>
+                            <?php echo $_SESSION['update_address1'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo $_SESSION['address2'];?>
+                            <?php echo $_SESSION['update_address2'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo $_SESSION['authority'];?>
+                            <?php echo $_SESSION['update_authority'];?>
                     </div>
                 </div>
             </div>

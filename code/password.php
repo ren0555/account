@@ -5,7 +5,7 @@ try{
         header("Location: error4.php");
     }else if ($_SESSION['login']==""){
                 header("Location: error2.php");
-    }else if($_SESSION['name1']==""){
+    }else if($_SESSION['update_name1']==""){
         header("Location: error5.php");
     }
         
@@ -13,6 +13,11 @@ try{
         echo "データベースの接続に失敗しました:";
         echo $e->getMessage();
         exit;
+}
+unset($_SESSION['pass0']);
+
+if(isset($_POST['submit'])){
+    $_SESSION['pass0']=5;
 }
 ?>
 
@@ -27,6 +32,9 @@ try{
              function check(){
                  if(form.password.value == ""){
                         return false;
+                     <?php
+                        $_SESSION['pass0']=5;
+                     ?>
                     }
              };
         </script>
@@ -42,7 +50,7 @@ try{
                     <div id ="error6"><br></div>
                 </div>
                 <div class="pass2">
-                      <input  class="update" type="submit" value="更新する" id="update" onclick="return check()">
+                      <input name="submit" class="update" type="submit" value="更新する" id="update"  onclick="return check()">
                 </div> 
             </form>
         </main>

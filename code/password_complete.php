@@ -3,7 +3,7 @@ session_start();
 mb_internal_encoding("utf8");
 date_default_timezone_set("Asia/Tokyo");
 
-$id = $_SESSION['id'];
+$id = $_SESSION['update_id'];
 $_POST['update_time']= date('Y/m/d H;i;s');
 $update_time = $_POST['update_time'];
 
@@ -13,7 +13,7 @@ if($_SESSION['login'] == "0"){
         header("Location: error4.php");
     }else if ($_SESSION['login']==""){
                 header("Location: error2.php");
-    }else if($_SESSION['name1']==""){
+    }else if($_SESSION['pass0']==""){
         header("Location: error5.php");
     }
 $pdo = new PDO("mysql:dbname=regist;host=localhost;","root","renta1216");
@@ -22,6 +22,7 @@ $_POST['update_time']= date('Y/m/d H;i;s');
 $pass=$_POST['password'];
 $pdo ->exec("update spi set password='$pass' where id ='$id'");
 $pdo -> exec("update spi set update_time='$update_time' where id = $id");
+unset($_SESSION['pass0']);
 ?>
 
 <!DOCTYPE>

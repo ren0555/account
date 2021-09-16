@@ -5,7 +5,7 @@ try{
         header("Location: error4.php");
     }else if ($_SESSION['login']==""){
                 header("Location: error2.php");
-    }else if($_SESSION['name1']==""){
+    }else if($_SESSION['update_name1']==""){
         header("Location: error5.php");
     }
 }catch(PDOException $e){
@@ -14,27 +14,27 @@ try{
         exit;
 }
 if(isset($_POST['submit'])){
-    $_SESSION['name1']=$_POST['name1'];
+    $_SESSION['update_name1']=$_POST['name1'];
                     
-    $_SESSION['name2']=$_POST['name2'];
+    $_SESSION['update_name2']=$_POST['name2'];
                         
-    $_SESSION['name3']=$_POST['name3'];
+    $_SESSION['update_name3']=$_POST['name3'];
                        
-    $_SESSION['name4']=$_POST['name4'];
+    $_SESSION['update_name4']=$_POST['name4'];
                        
-    $_SESSION['mail']=$_POST['mail'];
+    $_SESSION['update_mail']=$_POST['mail'];
                        
-    $_SESSION['gender']=$_POST['gender'];
+    $_SESSION['update_gender']=$_POST['gender'];
                        
-    $_SESSION['yubin']=$_POST['yubin'];
+    $_SESSION['update_yubin']=$_POST['yubin'];
                        
-    $_SESSION['prefecture']=$_POST['prefecture'];
+    $_SESSION['update_prefecture']=$_POST['prefecture'];
                         
-    $_SESSION['address1']=$_POST['address1'];
+    $_SESSION['update_address1']=$_POST['address1'];
                        
-    $_SESSION['address2']=$_POST['address2'];
+    $_SESSION['update_address2']=$_POST['address2'];
                         
-    $_SESSION['authority']=$_POST['authority'];
+    $_SESSION['update_authority']=$_POST['authority'];
     
     if(isset($_POST['name1']) && isset($_POST['name2'])&& isset($_POST['name3'])&& isset($_POST['name4']) && isset($_POST['mail']) && isset($_POST['gender']) && isset($_POST['yubin']) && isset($_POST['prefecture']) && isset($_POST['address1']) && isset($_POST['address2']) && isset($_POST['authority'])){
         header("Location:http://localhost/account/code/update_confirm.php");
@@ -111,34 +111,33 @@ if(isset($_POST['submit'])){
                         <input type="button"  value="アカウント一覧に戻る" class="bottun1" onclick="location.href='http://localhost/account/code/list.php'">
             </div>
             <form method="post"  action="" name="form" maxlength="10">
-                <input type="hidden" value="<?php echo $_SESSION['id'];?>" name="id">
                 <div class="contents">
                     <label>名前（姓）</label>
-                    <input type="text" class="text" name="name1" value="<?php if(!empty($_SESSION['name1']))  {echo $_SESSION['name1'];}?>" maxlength="10">
+                    <input type="text" class="text" name="name1" value="<?php if(!empty($_SESSION['update_name1']))  {echo $_SESSION['update_name1'];}?>" maxlength="10">
                     <div id ="error1"><br></div>
                 </div>
             
                 <div class="contents">
                     <label>名前（名）</label>
-                    <input type="text" class="text" name="name2" value="<?php if(!empty($_SESSION['name2'])){echo $_SESSION['name2'];}?>" maxlength="10">
+                    <input type="text" class="text" name="name2" value="<?php if(!empty($_SESSION['update_name2'])){echo $_SESSION['update_name2'];}?>" maxlength="10">
                     <div id ="error2"><br></div>
                 </div>
             
                 <div class="contents">
                     <label>カナ（姓）</label>
-                    <input type="text" placeholder="カタカナのみ可" class="text" name="name3"value="<?php if(!empty($_SESSION['name3'])){echo$_SESSION['name3'];}?>" maxlength="10">
+                    <input type="text" placeholder="カタカナのみ可" class="text" name="name3"value="<?php if(!empty($_SESSION['update_name3'])){echo $_SESSION['update_name3'];}?>" maxlength="10">
                     <div id ="error3"><br></div>
                 </div> 
                 
                 <div class="contents">
                     <label>カナ（名）</label>
-                    <input type="text" placeholder="カタカナのみ可" class="text" name="name4" value="<?php if(!empty($_SESSION['name4'])){echo$_SESSION['name4'];}?>" maxlength="10">
+                    <input type="text" placeholder="カタカナのみ可" class="text" name="name4" value="<?php if(!empty($_SESSION['update_name4'])){echo $_SESSION['update_name4'];}?>" maxlength="10">
                     <div id ="error4"><br></div>
                 </div>
             
                 <div class="contents">
                     <label>メールアドレス</label>
-                    <input type="email" class="text1" size="XXX" name="mail" value="<?php if(!empty($_SESSION['mail'])){echo$_SESSION['mail'];}?>" maxlength="100">
+                    <input type="email" class="text1" size="XXX" name="mail" value="<?php if(!empty($_SESSION['update_mail'])){echo $_SESSION['update_mail'];}?>" maxlength="100">
                     <div id ="error5"><br></div>
                 </div>
             
@@ -151,13 +150,13 @@ if(isset($_POST['submit'])){
                 <div class="contents">
                     <label>性別</label>
                     <input type="radio"  name="gender" class="radio" value="0" checked <?php if(filter_input(INPUT_POST,'gender') === "0"){echo 'checked';}?>>男
-                    <input type="radio"  name="gender" class="radio" value="1" <?php if(!empty($_SESSION['gender']) && $_SESSION['gender']==="1"){echo 'checked';}?>>女
+                    <input type="radio"  name="gender" class="radio" value="1" <?php if(!empty($_SESSION['update_gender']) && $_SESSION['update_gender']==="1"){echo 'checked';}?>>女
                     <div id ="error7"><br></div>
                 </div>
             
                 <div class="contents">
                     <label>郵便番号</label>
-                    <input type="tel" class="yubin" size="10" name="yubin" placeholder="半角数字のみ可" value="<?php if(!empty($_SESSION['yubin'])){echo$_SESSION['yubin'];}?>" maxlength="7"　>
+                    <input type="tel" class="yubin" size="10" name="yubin" placeholder="半角数字のみ可" value="<?php if(!empty($_SESSION['update_yubin'])){echo$_SESSION['update_yubin'];}?>" maxlength="7"　>
                     <div id ="error8"><br></div>
                 </div>
             
@@ -216,8 +215,8 @@ if(isset($_POST['submit'])){
                          "沖縄県",
                      );
                     
-                    if (isset($_SESSION['prefecture'])){
-                        $prefecture=$_SESSION['prefecture'];
+                    if (isset($_SESSION['update_prefecture'])){
+                        $prefecture=$_SESSION['update_prefecture'];
                     }
                     ?>
                 </div>   
@@ -240,13 +239,13 @@ if(isset($_POST['submit'])){
             
                 <div class="contents">
                     <label>住所(市区町村)</label>
-                    <input type="text"class="text3" name="address1" value="<?php if(!empty($_SESSION['address1'])){echo$_SESSION['address1'];}?>" maxlength="10">
+                    <input type="text"class="text3" name="address1" value="<?php if(!empty($_SESSION['update_address1'])){echo$_SESSION['update_address1'];}?>" maxlength="10">
                     <div id ="error10"><br></div>
                 </div>
                 
                 <div class="contents">
                     <label>住所(番地)</label>
-                    <input type="text"class="text4" name="address2" value="<?php if(!empty($_SESSION['address2'])){echo$_SESSION['address2'];}?>" maxlength="100">
+                    <input type="text"class="text4" name="address2" value="<?php if(!empty($_SESSION['update_address2'])){echo$_SESSION['update_address2'];}?>" maxlength="100">
                     <div id ="error11"><br></div>
                 </div>
                 
@@ -254,9 +253,9 @@ if(isset($_POST['submit'])){
                 
                 $a="";
                 $b="";
-                if($_SESSION['authority']==="一般"){
+                if($_SESSION['update_authority']==="一般"){
                     $a="selected";
-                }else if($_SESSION['authority'] = "管理人"){
+                }else if($_SESSION['update_authority'] = "管理人"){
                     $b="selected";
                 }
                 

@@ -6,7 +6,7 @@ try{
         header("Location: error4.php");
     }else if ($_SESSION['login']==""){
                 header("Location: error2.php");
-    }else if($_SESSION['name1']==""){
+    }else if($_SESSION['delete_name1']==""){
         header("Location: error5.php");
     }
 }catch(PDOException $e){
@@ -60,49 +60,49 @@ try{
                 
                 <div class="confirm_right">
                     <div class="insert">
-                            <?php echo $_SESSION['name1'];?>
+                            <?php echo $_SESSION['delete_name1'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo $_SESSION['name2'];?>
+                            <?php echo $_SESSION['delete_name2'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo $_SESSION['name3'];?>
+                            <?php echo $_SESSION['delete_name3'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo $_SESSION['name4'];?>
+                            <?php echo $_SESSION['delete_name4'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo $_SESSION['mail'];?>
+                            <?php echo $_SESSION['delete_mail'];?>
                     </div>
 
                     <div class="insert">●●●●●●</div>
 
                     <div class="insert">
-                            <?php if( $_SESSION['gender']=="0"){echo "男";}else if( $_SESSION['gender']=="1"){echo "女";}?>
+                            <?php if( $_SESSION['delete_gender']=="0"){echo "男";}else if( $_SESSION['delete_gender']=="1"){echo "女";}?>
                     </div>
 
                     <div class="insert">
-                            <?php echo $_SESSION['yubin'];?>
+                            <?php echo $_SESSION['delete_yubin'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo $_SESSION['prefecture'];?>
+                            <?php echo $_SESSION['delete_prefecture'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo $_SESSION['address1'];?>
+                            <?php echo $_SESSION['delete_address1'];?>
                     </div>
 
                     <div class="insert">
-                            <?php echo $_SESSION['address2'];?>
+                            <?php echo $_SESSION['delete_address2'];?>
                     </div>
 
                     <div class="insert">
-                            <?php if( $_SESSION['authority']=="0"){echo "一般";}else{echo "管理者";}?>
+                            <?php if( $_SESSION['delete_authority']=="0"){echo "一般";}else{echo "管理者";}?>
                     </div>
                 </div>
             </div>
