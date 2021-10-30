@@ -1,0 +1,7 @@
+package jp.co.diworks;
+
+public class Person {
+	public String name = null;
+	public int age =0;
+
+}
