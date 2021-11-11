@@ -13,7 +13,8 @@ public class Test {
 		System.out.println(jiro.name);
 		System.out.println(jiro.age);
 
-		Person saburo = new Person("saburo",0);
+		Person saburo = new Person("saburo");
+
 		System.out.println(saburo.name);
 		System.out.println(saburo.age);
 
@@ -21,7 +22,7 @@ public class Test {
 		System.out.println(noname.name);
 		System.out.println(noname.age);
 
-		Person hanako = new Person("hanako",17);
+		Person hanako = new Person(17,"hanako");
 		System.out.println(hanako.name);
 		System.out.println(hanako.age);
 	}
